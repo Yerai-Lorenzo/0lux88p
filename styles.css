@@ -1,0 +1,1689 @@
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --bg-body: #ffffff;
+    --text-main: #111111;
+    --text-muted: #555555;
+    --bg-card: #f4f4f4;
+    --bg-card-hover: #e0e0e0;
+    --accent: #e9500e;
+    --accent-glow: rgba(233, 80, 14, 0.3);
+    --radius: 12px;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --container-width: 1000px;
+    --container-wide: 1300px;
+    --header-footer: #161616;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+body.home-style {
+    --bg-body: #0a0a0a;
+    --text-main: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --bg-card: #161616;
+    --bg-card-hover: #1e1e1e;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+}
+
+.noborder {
+    border-radius: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 2. UTILITIES --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container-wide {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 30px;
+    /* Un poco más de padding lateral queda mejor en ancho completo */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.grid {
+    display: grid;
+    gap: 40px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.hero-title,
+h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.section-title,
+h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: var(--text-main);
+    display: block;
+}
+
+.card-title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    color: var(--text-main);
+    display: block;
+    /* Para que el p se comporte con peso */
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.footer-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+p {
+    margin-bottom: 1.5em;
+    color: var(--text-muted);
+}
+
+strong {
+    font-weight: 600;
+}
+
+.pre-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+}
+
+/* --- 3. COMPONENTS --- */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-weight: 700;
+    border-radius: 100px;
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 10px 30px -10px var(--accent-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px -10px var(--accent-glow);
+    background: #ff5e1a;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #333;
+    color: #fff;
+    box-shadow: none;
+    padding: 10px 24px;
+    border-radius: 100px;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+}
+
+/* Header */
+header {
+    background-color: var(--header-footer);
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    padding: 20px 0;
+}
+
+header.header-home {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Desktop Nav Fixes */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-main);
+    text-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--accent-glow);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+header .nav-link {
+    color: #ffffff;
+}
+
+header .nav-link:hover {
+    color: #ffffff;
+}
+
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    /* 1. ESTADO INICIAL (OCULTO) */
+    visibility: hidden;
+    opacity: 0;
+    /* Centrado horizontal absoluto + Desplazamiento vertical inicial */
+    transform: translateX(-50%) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* Animación más natural */
+
+    /* 2. POSICIONAMIENTO */
+    position: absolute;
+    top: 100%;
+    /* Justo debajo del padre */
+    left: 50%;
+    /* Empezamos en el centro del padre */
+    min-width: 220px;
+
+    /* 3. ESTÉTICA (GLASSMORPHISM MEJORADO) */
+    background-color: #121212;
+    /* Fondo sólido muy oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Borde más nítido */
+    border-radius: 12px;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.3),
+        /* Sombra pequeña */
+        0 20px 40px rgba(0, 0, 0, 0.6);
+    /* Sombra grande para profundidad */
+
+    padding: 20px;
+    z-index: 1000;
+
+    /* Flex para lista vertical limpia */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Más espacio entre elementos */
+}
+
+/* Puente invisible para que el ratón no pierda el foco al bajar */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+}
+
+/* Triangulito (Flecha) decorativo en la parte superior */
+.dropdown-content::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    /* Posición para sobresalir un poco */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    /* Rotamos un cuadrado para hacer un triángulo */
+    width: 12px;
+    height: 12px;
+    background-color: #121212;
+    /* Mismo color que el fondo */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    /* Borde continuo */
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: -1;
+    /* Detrás del contenido pero parte de la caja */
+}
+
+/* 4. ESTADO HOVER (VISIBLE) */
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    /* Mantenemos el centrado X y subimos la Y */
+    transform: translateX(-50%) translateY(15px);
+}
+
+/* Estilos de los enlaces (Igual que antes, pero refinados) */
+.dropdown-content a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    width: fit-content;
+    /* El enlace ocupa solo lo que mide el texto */
+    transition: color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    text-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Línea de subrayado neón */
+.dropdown-content a::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px var(--accent);
+}
+
+.dropdown-content a:hover::before {
+    width: 100%;
+}
+
+/* Hero */
+.hero {
+    /* border-radius: var(--radius); removed per user request for full width look */
+    /* overflow: hidden; */
+    /* box-shadow: ... removed */
+    border: none;
+    max-width: 100%;
+    /* Allow full width */
+    background: radial-gradient(circle at 50% 30%, rgba(233, 80, 14, 0.15), transparent 60%);
+    position: relative;
+    /* Ensure z-index works if needed */
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 0;
+}
+
+/* Wistia-like Facade */
+.wistia-facade {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wistia-facade::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.wistia-facade:hover::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.wistia-play-btn {
+    position: relative;
+    z-index: 2;
+    background: var(--accent);
+    width: 120px;
+    height: 75px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s;
+}
+
+.wistia-play-btn::after {
+    content: '';
+    border-style: solid;
+    border-width: 12px 0 12px 21px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.wistia-facade:hover .wistia-play-btn {
+    transform: scale(1.1);
+    background: #ff5e1a;
+}
+
+/* Cards / Content Boxes */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: var(--bg-card-hover);
+}
+
+/* Comparison Section */
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.comparison-text ul li {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-muted);
+}
+
+.comparison-text ul li::before {
+    content: '✕';
+    color: #ff4444;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.comparison-text ul li.check::before {
+    content: '✓';
+    color: var(--accent);
+}
+
+/* FAQ Accordion (Simple CSS Only) */
+details {
+    background: var(--bg-card);
+    margin-bottom: 15px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+details summary {
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+details[open] summary::after {
+    content: '-';
+}
+
+.faq-content {
+    padding: 0 20px 20px;
+    color: var(--text-muted);
+    font-size: 0.95em;
+}
+
+/* Footer */
+footer {
+    background: var(--header-footer);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0;
+    margin-top: 100px;
+    font-size: 17px;
+    color: #a0a0a0;
+}
+
+footer .footer-title,
+footer p.card-title {
+    color: #ffffff;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+footer h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+footer p {
+    color: #a0a0a0;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+footer ul li {
+    margin-bottom: 12px;
+}
+
+footer a {
+    color: #a0a0a0;
+    transition: 0.2s;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+/* Footer Form */
+.footer-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-form input[type="email"] {
+    background: #161616;
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.footer-form .btn-small {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-form .btn-small:hover {
+    background: #ff5e1a;
+}
+
+.footer-legal-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #777;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-links svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #555;
+    font-size: 13px;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Or hamburger menu logic if needed later */
+}
+
+/* Animation Utilities */
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+#backToTop svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* --- MOBILE MENU STYLES --- */
+
+/* 1. Estilos del Botón Hamburguesa */
+.mobile-menu-btn {
+    display: none;
+    /* Oculto en escritorio */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    /* Por encima del menú abierto */
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Animación del botón al convertirse en X */
+.mobile-menu-btn.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: var(--accent);
+}
+
+.mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: var(--accent);
+}
+
+/* 2. Media Query para Móviles */
+/* --- MOBILE MENU PREMIUM --- */
+
+/* --- MOBILE MENU PRO FINAL --- */
+
+@media (max-width: 768px) {
+
+    /* 1. Botón Hamburguesa */
+    .mobile-menu-btn {
+        display: block;
+        z-index: 2000;
+        position: relative;
+    }
+
+    /* 2. Contenedor Principal */
+    .desktop-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Alinea todo arriba */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: #000000;
+        padding: 100px 30px 40px 30px;
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        overflow-y: auto;
+        /* Permite scroll si el menú es muy alto */
+    }
+
+    .desktop-nav.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 3. Enlaces Principales (Sobre mí, Herramientas, Contacto) */
+    .desktop-nav>.nav-link,
+    .dropdown>.nav-link {
+        font-size: 22px;
+        font-weight: 600;
+        color: #fff;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Quitar efectos hover de escritorio */
+    .nav-link::before {
+        display: none !important;
+    }
+
+    /* 4. ARREGLO DEL DROPDOWN (La parte crítica) */
+    .dropdown {
+        display: block;
+        width: 100%;
+    }
+
+    /* Flecha animada */
+    .dropdown>.nav-link::after {
+        content: '+';
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--accent);
+        transition: transform 0.3s;
+    }
+
+    .dropdown.open>.nav-link::after {
+        content: '−';
+        transform: rotate(0);
+    }
+
+    /* Reseteo agresivo del contenedor desplegable */
+    .dropdown-content {
+        /* Anular estilos de escritorio */
+        position: static !important;
+        transform: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        /* Estilos móviles */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Eliminar los triangulitos decorativos de escritorio */
+    .dropdown-content::before,
+    .dropdown-content::after {
+        display: none !important;
+    }
+
+    /* Abrir el acordeón */
+    .dropdown.open .dropdown-content {
+        max-height: 500px;
+        /* Suficiente para mostrar el contenido */
+        padding-bottom: 10px;
+        /* Un poco de aire antes del siguiente item */
+    }
+
+    /* Enlaces internos del dropdown */
+    .dropdown-content a {
+        font-size: 18px;
+        color: #b0b0b0;
+        padding: 12px 0 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: block;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:last-child {
+        border-bottom: none;
+    }
+
+    /* 5. Botón CTA al fondo */
+    .desktop-nav .btn-outline {
+        margin-top: auto;
+        /* Esto lo empuja al final */
+        width: 100%;
+        text-align: center;
+        background: var(--accent);
+        border: none;
+        color: white;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: 18px;
+        display: block;
+        /* Asegura que respete márgenes */
+    }
+}
+
+/* ... (MANTENER TODO EL CÓDIGO ANTERIOR) ... */
+
+/* =========================================
+   --- BLOG POST STYLES (NUEVO) ---
+   ========================================= */
+
+/* 1. Layout Estructural */
+.post-header-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+    /* O center, según preferencia */
+}
+
+.post-title {
+    /* H1 del título principal */
+    font-size: 48px;
+    font-weight: 800;
+    /* Extra Bold */
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    /* Contenido flexible + Sidebar fija */
+    gap: 60px;
+    padding-bottom: 80px;
+    align-items: start;
+    /* Importante para el sticky sidebar */
+}
+
+/* 2. Tipografía del Artículo (.prose)
+   Aplicamos aquí las reglas estrictas de encabezados y texto */
+
+.prose {
+    font-size: 19px;
+    /* Un poco más grande para lectura cómoda */
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* Regla de Encabezados: Bajando 4px tamaño y 100 peso */
+.prose h1 {
+    font-size: 3px;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.prose h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.prose h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.prose h4 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.prose h5 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    font-style: italic;
+    /* Para distinguirlo más */
+}
+
+.prose h6 {
+    font-size: 20px;
+    font-weight: 300;
+    /* Light */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--accent);
+    /* Color acento para distinguirlo del texto base */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enlaces dentro del texto */
+.prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+}
+
+.prose a:hover {
+    color: var(--text-main);
+    background-color: var(--accent-glow);
+}
+
+/* Listas */
+.prose ul,
+.prose ol {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.prose ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.prose ul li::before {
+    content: '•';
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.prose ol {
+    counter-reset: blog-counter;
+}
+
+.prose ol li {
+    list-style: none;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.prose ol li::before {
+    counter-increment: blog-counter;
+    content: counter(blog-counter) ".";
+    color: var(--accent);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+/* Citas (Blockquotes) */
+.prose blockquote {
+    border-left: 4px solid var(--accent);
+    background: var(--bg-card);
+    padding: 20px 30px;
+    margin: 40px 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    color: var(--text-main);
+    font-size: 1.1em;
+}
+
+/* 3. Tabla de Contenidos (TOC) */
+/* --- CORRECCIÓN BOTÓN (Quitar relieve) --- */
+.btn {
+    /* Aseguramos que no tenga borde por defecto */
+    border: none;
+    cursor: pointer;
+    /* Importante para botones form */
+    /* Mantenemos el resto de estilos... */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-weight: 700;
+    border-radius: 100px;
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 10px 30px -10px var(--accent-glow);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+/* ---TABLA DE CONTENIDOS --- */
+.toc-box {
+    background: #ffffff;
+    border: none;
+    border-left: 5px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    /* Sombra muy suave */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Padding compacto */
+    padding: 20px 30px;
+    margin: 40px 0;
+}
+
+body.home-style .toc-box {
+    background: #1a1a1a;
+    box-shadow: none;
+    border: 1px solid #333;
+    border-left: 5px solid var(--accent);
+}
+
+/* --- TÍTULO (SUMMARY) --- */
+.toc-box summary {
+    /* TRUCO: fit-content hace que la caja ocupe solo lo que mide el texto.
+       Así es imposible que el corchete se vaya lejos. */
+    width: 100%;
+    /* CAMBIO: Ancho completo para que el icono quede a la derecha del todo */
+    display: block;
+
+    font-weight: 800;
+    color: var(--text-main);
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+    margin-bottom: 20px;
+
+    /* CAMBIO: Icono + / - usando gradientes para no gastar pseudo-elementos (ocupados por los corchetes) */
+    position: relative;
+    padding-right: 40px;
+    /* Espacio para el icono */
+
+    /* Dibujamos el signo MÁS (+) */
+    background-image:
+        linear-gradient(var(--accent), var(--accent)),
+        /* Línea Horizontal */
+        linear-gradient(var(--accent), var(--accent));
+    /* Línea Vertical */
+    background-size:
+        12px 2px,
+        /* Ancho H */
+        2px 12px;
+    /* Ancho V */
+    background-position:
+        right 0px center,
+        /* Posición H */
+        right 5px center;
+    /* Posición V */
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+}
+
+/* Estado ABIERTO (Transformar + en -) */
+.toc-box[open] summary {
+    /* Dibujamos el signo MENOS (-) ocultando la línea vertical */
+    background-size:
+        12px 2px,
+        2px 0px;
+    /* Vertical a 0 height */
+}
+
+/* Ocultar triángulo nativo */
+.toc-box summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Corchete de apertura */
+.toc-box summary::before {
+    content: '[ ';
+    color: var(--accent);
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+/* Corchete de cierre (BLINDADO) */
+/* Usamos !important para asegurar que sobreescriba cualquier regla vieja del símbolo menos */
+.toc-box summary::after,
+.toc-box[open] summary::after {
+    content: ' ]' !important;
+    /* Siempre corchete, nunca menos */
+    color: var(--accent);
+    font-weight: 800;
+    margin-left: 8px;
+    transform: none !important;
+    /* Quitar rotaciones viejas */
+    position: static !important;
+    /* Quitar floats viejos */
+    display: inline;
+}
+
+/* --- LISTA ORDENADA (01, 02...) --- */
+.toc-box ol {
+    counter-reset: toc-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-box ol>li {
+    counter-increment: toc-counter;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 40px;
+    /* Hueco para el número */
+    font-weight: 600;
+    font-size: 0.95em;
+    color: var(--text-main);
+}
+
+/* Números naranjas */
+.toc-box ol>li::before {
+    content: "0" counter(toc-counter) ". ";
+    color: var(--accent);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.toc-box ol>li>a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s;
+}
+
+.toc-box ol>li>a:hover {
+    color: var(--accent);
+}
+
+/* --- SUBLISTAS (Puntos) --- */
+.toc-box ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    margin-left: -5px;
+}
+
+.toc-box ul li {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #777;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.toc-box ul li::before {
+    content: '•';
+    color: #ccc;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.toc-box ul li a {
+    text-decoration: none;
+    color: #666;
+}
+
+.toc-box ul li a:hover {
+    color: var(--accent);
+}
+
+/* 4. Sidebar Widget - FUSIONADO Y MEJORADO */
+.sidebar-wrapper {
+    position: sticky;
+    top: 40px;
+}
+
+.sidebar-widget {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    /* Más padding vertical */
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Sutil en dark mode */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    /* Sombra elegante */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen centrada sin bordes */
+.sidebar-widget img.author-face {
+    width: 130px;
+    /* Un poco más grande */
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* Solo sombra, sin borde blanco */
+    border: none;
+    /* Aseguramos que no haya borde */
+}
+
+.sidebar-widget h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.sidebar-widget p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.sidebar-form {
+    width: 100%;
+}
+
+.sidebar-form input[type="email"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: var(--bg-body);
+    /* Contraste con la tarjeta */
+    transition: border-color 0.3s;
+}
+
+.sidebar-form input[type="email"]:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.legal-text {
+    text-align: left;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.legal-text input {
+    margin-top: 3px;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 14px;
+}
+
+/* 5. Author Box (Final del artículo) */
+.author-box {
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border-top: 4px solid var(--accent);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.author-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.author-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: var(--text-main);
+}
+
+.author-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.author-social a {
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 15px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* Responsive Blog */
+@media (max-width: 900px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        /* Columna única */
+        gap: 40px;
+    }
+
+    .post-title {
+        font-size: 32px;
+    }
+
+    .sidebar-wrapper {
+        position: static;
+        /* Ya no sticky en móvil */
+    }
+
+    .author-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- NEW HOME SECTIONS --- */
+
+/* Check List */
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Testimonials */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.placeholder-img {
+    background: #222;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    border-radius: var(--radius);
+    border: 1px dashed #444;
+}
+
+.placeholder-audio {
+    background: #222;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    border-radius: 30px;
+    border: 1px dashed #444;
+}
+
+/* Case Study Grid Responsive Fix */
+@media (max-width: 768px) {
+    .grid[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+}
+
+/* --- CUSTOM AUDIO --- */
+.custom-audio {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 30px;
+    /* Rounded corners */
+    color-scheme: dark;
+    /* Dark controls */
+    background-color: #222;
+    /* Fallback for transparency */
+}
+
+/* --- STYLED LIST --- */
+.styled-list {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    counter-reset: my-counter;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.styled-list li {
+    list-style: none;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.styled-list li::before {
+    counter-increment: my-counter;
+    content: counter(my-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Cookies */
+/* Cookies Premium Style */
+.cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+
+    background: rgba(22, 22, 22, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding: 24px;
+    border-radius: var(--radius);
+
+    display: none;
+    /* Hidden by default, JS toggles flex */
+    flex-direction: column;
+    gap: 20px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+}
+
+.cookie-banner p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: #cccccc;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+.cookie-buttons button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#accept-cookies-btn {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 80, 14, 0.3);
+}
+
+#accept-cookies-btn:hover {
+    background-color: #ff5e1a;
+    transform: translateY(-2px);
+}
+
+#decline-cookies-btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+#decline-cookies-btn:hover {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsiveness for mobile */
+@media (max-width: 600px) {
+    .cookie-banner {
+        bottom: 20px;
+        width: calc(100% - 40px);
+        padding: 20px;
+    }
+}
+
+.reset-consent-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+    /* Hidden by default */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    color: #333;
+}
+
+.reset-consent-btn:hover {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

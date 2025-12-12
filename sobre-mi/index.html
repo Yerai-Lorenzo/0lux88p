@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - Yerai Lorenzo</title>
+    <meta name="description"
+        content="La historia de cómo pasé de querer ser un entomólogo a ser reconocido como experto en SEO técnico y semántico.">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- ESTILOS ESPECÍFICOS PARA ABOUT.HTML --- */
+
+        /* 1. Header Transparente y superpuesto (Solo en esta página) */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent !important;
+            /* Fuerza la transparencia */
+            border-bottom: none !important;
+            z-index: 100;
+        }
+
+        /* 2. Sección Hero (Fusión oscura con el header) */
+        .about-hero {
+            background-color: var(--header-footer);
+            /* Mismo color oscuro del footer/header global */
+            color: white;
+            padding-top: 180px;
+            /* Espacio para que el header no tape el texto */
+            padding-bottom: 80px;
+            margin-bottom: 60px;
+            text-align: center;
+            /* Queda mejor centrado en diseño hero */
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            /* Opcional: un pequeño corte diagonal moderno abajo */
+        }
+
+        .about-hero h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .about-hero .subtitle {
+            color: #ccc;
+            font-size: 1.25em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            float: left;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            width: 40%;
+            max-width: 400px;
+            box-shadow: 20px 20px 0px #eee;
+            border-radius: var(--radius);
+        }
+
+        .summary-box {
+            background: var(--header-footer);
+            color: white;
+            padding: 60px 40px;
+            border-radius: var(--radius);
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-box h2 {
+            color: white;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .summary-box p {
+            color: #ccc;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding-top: 140px;
+                padding-bottom: 60px;
+                clip-path: none;
+                /* Quitamos el corte diagonal en móvil para ganar espacio */
+                text-align: left;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .about-image {
+                float: none;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 0 40px 0;
+                box-shadow: 10px 10px 0px #eee;
+            }
+
+            .summary-box {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER (Ahora es transparente gracias al CSS interno) -->
+    <header>
+        <div class="container-wide nav-flex">
+            <a href="#" class="logo">
+                <img class="noborder" src="../img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="desktop-nav">
+                <a href="about.html" class="nav-link">Sobre mí</a>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Herramientas</a>
+                    <div class="dropdown-content">
+                        <a href="#">Auditoría Técnica</a>
+                        <a href="#">Análisis de Logs</a>
+                        <a href="#">Keyword Research</a>
+                    </div>
+                </div>
+
+                <a href="post.html" class="nav-link">Contacto</a>
+                <a href="#audit" class="btn btn-outline">Pide Presupuesto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- NUEVA SECCIÓN HERO (Fondo oscuro fusionado) -->
+    <!-- Sacamos esto fuera del 'main container' para que ocupe el 100% del ancho -->
+    <div class="about-hero">
+        <div class="container fade-in">
+            <h1>Esta es mi historia</h1>
+            <p class="subtitle">O cómo pasé de querer ser un entomólogo millonario a ser reconocido por la comunidad de
+                SEO más importante del momento.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Vuelve a ser fondo blanco estándar) -->
+    <main class="container">
+
+        <article class="fade-in">
+            <!-- Imagen alineada a la izquierda (float) -->
+            <img src="../img/yerai-lorenzo-about.png" alt="Yerai Lorenzo" class="about-image">
+
+            <!-- Historia Narrativa -->
+            <p>Cuando yo era un niño, me encantaban los bichos, me fascinaban. Levantaba piedras, los perseguía, contaba
+                cuantas patas tenían, los metía en tarros y les daba de comer. Incluso llegaba a recrear su hábitat
+                natural en pequeños terrarios.</p>
+
+            <p>Tanto es así, que una de las anécdotas que más suele contar mi madre es que yo, desde muy pequeño,
+                <em>cuando tenía 8 años</em>, me ponía a leer libros de zoología y me aprendía los nombres científicos,
+                su fisionomía y su clasificación.
+            </p>
+
+            <p>Tenía claro a qué carrera iba a ir: <strong>me iba a meter en biología.</strong> (Espera, esto no tiene
+                enlace, pero si hubiera uno <a href="#">se vería así</a>).</p>
+
+            <p>¿Qué pasó? El primer día de carrera fue un completo error. El profesor nos dijo: <em>“Si ustedes piensan
+                    qué van a vivir de esto, van mal. Ninguno de la plantilla se va a jubilar y la única salida que
+                    tiene esta carrera es trabajar en la universidad.”</em></p>
+
+            <p>En ese momento pensé: <strong>¿y ahora qué diablos hago con mi vida?</strong> ¿Persigo mi pasión a riesgo
+                de acabar bajo un puente? Como lo segundo que más me gustaba era el dinero, fui a por el plan B.</p>
+
+            <p>Me matriculé en ADE y terminé con matrícula de honor. Decidí emprender como consultor de innovación.
+                Imprimí tarjetas y salí a vender puerta a puerta, pero los ataques de ansiedad y la timidez me
+                paralizaron. Vender aquello me parecía imposible.</p>
+
+            <p>Dejé el proyecto en stand-by y trabajé como asesor en el Gobierno de Canarias para forzarme a mejorar de
+                cara al público. Pero en paralelo, <strong>buscaba cómo hacer que la gente viniera a mí</strong> sin
+                tener que dar tarjetas.</p>
+
+            <p>Así me topé con el <strong>SEO</strong>.</p>
+
+            <p>Eran tiempos sin IA ni fragmentos destacados. Aprendí sobre algoritmos, linkbuilding y schema. Cuando
+                logré posicionar mi propia web, me di cuenta del poder que tenía: <strong>si podía hacerlo para mí,
+                    podía lograr que otros negocios hicieran lo mismo.</strong></p>
+
+            <p>Empecé a colaborar con clientes variados:</p>
+            <ul>
+                <li>Empresas de marketing que querían auditorías avanzadas.</li>
+                <li>Tiendas online con tráfico masivo penalizadas por Google.</li>
+                <li>Youtubers del sector agrícola (combinando mi pasión por los bichos).</li>
+                <li>Empresas hackeadas o saboteadas por competidores.</li>
+            </ul>
+
+            <p>Durante este proceso, no solo mejoré la calidad de mis servicios huyendo del modelo de "agencia que
+                despacha rápido", sino que seguí nutriéndome. Conocí a <strong>Koray Tugberk GÜBÜR</strong>, un genio
+                del SEO semántico que trabaja con empresas Fortune 500.</p>
+
+            <p>Me obsesioné con el SEO semántico igual que con los bichos de pequeño. Descifrar patentes, leer
+                filtraciones, entender cómo clasifica Google la información.</p>
+
+            <p>Hoy, <strong>Fat Rank me considera uno de los mejores consultores de SEO semántico</strong> y técnico del
+                mundo, siendo coautor del libro <em>“Technical SEO: Are you even an SEO if you don’t check server
+                    logs?”</em> junto a referentes internacionales.</p>
+
+            <div class="btn-center" style="margin-top: 40px; text-align: center;">
+                <a href="https://yerailorenzo.com/hablemos/" class="btn">Hablemos de tu proyecto</a>
+            </div>
+        </article>
+
+        <!-- SECCIÓN RESUMEN -->
+        <section class="summary-box fade-in">
+            <h2>En resumen</h2>
+            <p><strong>Yerai Lorenzo es consultor SEO y formador.</strong></p>
+            <p>Proporciona servicios de posicionamiento estudiando el funcionamiento profundo de Google a través de
+                patentes, tests A/B y análisis de datos con Python.</p>
+            <p>Su enfoque combina la obsesión técnica con la estrategia semántica para entender los algoritmos mejor que
+                nadie. Además, comparte este conocimiento avanzado en su newsletter gratuita.</p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <!-- Col 1: Brand & Newsletter -->
+                <div>
+                    <img class="noborder" src="../img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo"
+                        style="width: 200px; margin-bottom: 20px;">
+                    <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
+
+                    <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
+                    <form action="#" class="footer-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn-small">Únete</button>
+                    </form>
+                    <div class="footer-legal-check">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Acepto la política de privacidad</label>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navegación -->
+                <div>
+                    <p class="footer-title">Navegación</p>
+                    <ul>
+                        <li><a href="#">Sobre mí</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal -->
+                <div>
+                    <p class="footer-title">Legal</p>
+                    <ul>
+                        <li><a href="#">Aviso legal</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contacto -->
+                <div>
+                    <p class="footer-title">Contacto</p>
+                    <a href="#">Teléfono: 622 77 17 78</a>
+
+                    <p class="footer-title" style="margin-top:15px">Redes sociales</p>
+                    <div class="social-links">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                <path
+                                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="https://twitter.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter X">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/yerailorenzo" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Google Maps (Perfil de Negocio) -->
+                        <a href="https://www.google.com/maps?cid=13333859496507057665" target="_blank"
+                            rel="noopener noreferrer" aria-label="Google Maps">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3.273 1.636c-.736 0-1.363.492-1.568 1.16L0 9.272c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.65 1.35 3 3 3 1.664 0 3-1.336 3-3 0 1.664 1.336 3 3 3s3-1.336 3-3l-1.705-6.476a1.646 1.646 0 0 0-1.568-1.16zm8.729 9.326c-.604 1.063-1.703 1.81-3.002 1.81-1.304 0-2.398-.747-3-1.806-.604 1.06-1.702 1.806-3 1.806-.484 0-.944-.1-1.363-.277v8.232c0 .9.736 1.637 1.636 1.637h17.454c.9 0 1.636-.737 1.636-1.637v-8.232a3.48 3.48 0 0 1-1.363.277c-1.304 0-2.398-.746-3-1.804-.602 1.058-1.696 1.804-3 1.804-1.299 0-2.394-.75-2.998-1.81zm5.725 3.765c.808 0 1.488.298 2.007.782l-.859.859a1.623 1.623 0 0 0-1.148-.447c-.98 0-1.772.827-1.772 1.806 0 .98.792 1.807 1.772 1.807.882 0 1.485-.501 1.615-1.191h-1.615v-1.16h2.826c.035.196.054.4.054.613 0 1.714-1.147 2.931-2.88 2.931a3 3 0 0 1 0-6z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                Copyright © 2025 Yerai Lorenzo
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Volver arriba"><svg viewBox="0 0 20 20">
+            <path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"></path>
+        </svg></button>
+
+    <!-- SCRIPTS -->
+    <script src="main.js"></script>
+</body>
+
+</html>

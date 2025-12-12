@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yerai Lorenzo - Auditoría SEO Avanzada</title>
+    <meta name="description"
+        content="Descubre qué impide que tu web posicione con una auditoría SEO técnica y semántica de alto nivel.">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        strong {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="home-style">
+
+    <!-- HEADER -->
+    <header class="header-home">
+        <div class="container-wide nav-flex">
+            <a href="#" class="logo">
+                <img class="noborder" src="img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="desktop-nav">
+                <a href="about.html" class="nav-link">Sobre mí</a>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Herramientas</a>
+                    <div class="dropdown-content">
+                        <a href="#">Auditoría Técnica</a>
+                        <a href="#">Análisis de Logs</a>
+                        <a href="#">Keyword Research</a>
+                    </div>
+                </div>
+
+                <a href="post.html" class="nav-link">Contacto</a>
+                <a href="#audit" class="btn btn-outline">Pide Presupuesto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero text-center" style="padding-top: 120px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="fade-in">
+                <p class="pre-title">Consultor SEO</p>
+                <h1 class="hero-title">Aumenta tu <span class="text-accent">Alcance Orgánico</span></h1>
+                <p style="max-width: 800px; margin: 20px auto; font-size: 20px;">
+                    Adquirir un nuevo lead suele costar entre 5 y 7 veces más que lograr que tus actuales clientes te
+                    vuelvan a comprar. Obtener puestos altos en más consultas en buscadores te permitirá extender la
+                    presencia digital de tu negocio de forma orgánica, reduciendo el CAC y asegurando posiciones que tu
+                    competencia no te podrá robar fácilmente.
+                </p>
+                <p style="margin-top: 30px; font-weight: 600;">
+                    El primer paso para trabajar conmigo es contratar una auditoría
+                </p>
+            </div>
+
+            <div class="video-wrapper fade-in" style="margin-top: 40px;">
+                <!-- Wistia-like Facade -->
+                <div class="wistia-facade"
+                    style="background-image: url('https://img.youtube.com/vi/0Q1BLSOF76o/maxresdefault.jpg');"
+                    onclick="playVideo(this, '0Q1BLSOF76o')">
+                    <div class="wistia-play-btn"></div>
+                </div>
+            </div>
+
+            <script>
+                function playVideo(container, videoId) {
+                    container.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?modestbranding=1&showinfo=0&rel=0" title="Yerai Lorenzo SEO" allowfullscreen style="width:100%; height:100%; border:0;"></iframe>`;
+                    // Remove the facade class to remove background and pointer events if needed, 
+                    // generally sticking an iframe inside fills it so it's fine.
+                    // But to be clean we can remove the click handler or just let the iframe cover it.
+                }
+            </script>
+
+            <div class="fade-in" style="margin-top: 50px;">
+                <a href="#audit-cta" class="btn">Descubre qué está fallando en tu estrategia SEO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHORITY & CONSTRAINTS -->
+    <section class="section" style="padding-top:0px;">
+        <div class=" container text-center">
+            <div class="fade-in" style="max-width: 900px; margin: 0 auto; margin-bottom: 80px;">
+                <p style="font-style: italic; font-size: 18px; color: var(--text-muted);">
+                    He sido reconocido por James Dooley y Karl Hudson (dos de los consultores SEO más aclamados de UK)
+                    como uno de los 20 consultores de SEO técnico más avanzados del mundo. Y FatRank me ha listado como
+                    uno de los 16 mejores consultores de SEO semántico a seguir en 2025.
+                </p>
+                <p style="font-size: 14px; margin-top: 10px; color: #555;">(Y no, no pagué por salir en esa lista)</p>
+            </div>
+
+            <div class="fade-in">
+                <h2 style="font-size: 36px; line-height: 1.2;">Trabajo solo, por lo que sólo<br>
+                    <span class="text-accent">doy servicio a 3 clientes a la vez</span>
+                </h2>
+                <p style="max-width: 700px; margin: 30px auto;">
+                    Por ese motivo, no tengo 100 casos de éxito que mostrarte. Porque:</p>
+                <ol class="styled-list">
+                    <li>Más que presumir estoy interesado en cumplir mi responsabilidad,</li>
+                    <li>mantengo los datos mis clientes de forma absolutamente privada para que la competencia no pueda
+                        saber quiénes son, y</li>
+                    <li>busco relaciones a largo plazo.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="section" style="background-color: var(--bg-card);">
+        <div class="container">
+            <div class="comparison" style="align-items: flex-start;">
+                <!-- Column 1: Text -->
+                <div class="fade-in">
+                    <p style="font-size: 20px; font-weight: 500; margin-bottom: 20px;">
+                        Sin embargo, le pedí a uno de mis clientes recientes
+                        (he estado trabajando con él desde hace 1 año), que me
+                        permitiera mostrar los resultados que estoy generando
+                        para él - sin mostrar su nombre, ni el de su empresa.
+                    </p>
+                    <p style="font-size: 20px; font-weight: 500; color:white;">
+                        En un año, su tráfico no sólo <span class="text-accent">alcanzó el máximo histórico</span> (a
+                        pesar de que el sitio sufrió una
+                        penalización manual y otra algorítmica), sino que su tráfico en los últimos 3 meses <span
+                            class="text-accent">ha crecido
+                            en más de 30%</span> y la <span class="text-accent">visibilidad orgánica se ha
+                            duplicado</span>.
+                    </p>
+                </div>
+
+                <!-- Column 2: Image -->
+                <div class="fade-in">
+                    <img src="img/ahrefs-traffic.jpg" alt="Gráfico de resultados SEO Ahrefs"
+                        style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                    <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Visión global del
+                        tráfico</p>
+                    <img src="img/gsc-3m-yoy.png" alt="Gráfico de resultados SEO GSC"
+                        style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                    <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Comparación tráfico
+                        año a año. El sitio tiene 400 páginas, y todas aparencen en la primera página de Google para la
+                        consulta principal.</p>
+                </div>
+            </div>
+
+            <!-- Results Context -->
+            <div class="fade-in" style="margin-top: 60px;">
+                <h3>Estos resultados se obtuvieron aún cuando:</h3>
+                <ul class="check-list">
+                    <li>Google implementó las AI Overviews y el modo IA, que redujeron los clicks en la mayoría de
+                        sitios a la mitad, como confirmaron los medios más relevantes del mundo del SEO, como SEJ...
+                    </li>
+                    <li>Sin usar a un gran equipo de redactores, sólo trabajaron 2 personas en los contenidos.</li>
+                    <li>Sin hacer nada de linkbuilding ni RP digitales.</li>
+                    <li>Y con un presupuesto de 27.000€ anuales.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="section">
+        <div class="container text-center">
+            <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+                <h2>Sin embargo, no te confundas,<br><span class="text-accent">no te muestro esto para
+                        presumir.</span></h2>
+                <p>
+                    No creo que sean resultados astronómicos. Son buenos resultados. Competimos contra gigantes que
+                    tienen miles de páginas más que nosotros, y equipos y presupuestos de 5 a 10 veces superiores.
+                    Imagina lo que podríamos hacer si tuviéramos los mismos recursos.
+                </p>
+                <p>Te los enseño porque yo, como
+                    empresario, si fuera a plantearme hacer negocios conmigo, me gustaría, al menos, ver una prueba de
+                    que lo que hago funciona.
+                </p>
+                <p style="font-weight: 700; font-size: 20px; margin-top: 20px;">Así que te la entrego.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="background-color: #111;">
+        <div class="container">
+            <div class="text-center fade-in" style="margin-bottom: 60px;">
+                <h3>Con respecto a mis auditorías, esto es lo que<br>otros clientes han opinado de ellas:</h3>
+                <p style="max-width: 700px; margin: 20px auto; font-size: 16px; color: #777;">
+                    (No son ni mis vecinos, ni mis primos, ni amigos, ni tiré de contactos. Son opiniones de clientes
+                    que contacté en frío, por email, y que decidieron contratar mis auditorías):
+                </p>
+            </div>
+
+            <div class="testimonial-grid">
+                <!-- Testimonial 2 -->
+                <div class="card fade-in">
+                    <img style="margin-bottom: 20px;" src="img/testimonio-2.png" alt="Testimonio 2" />
+                </div>
+                <!-- Testimonial 1 -->
+                <div class="card fade-in">
+                    <img style="margin-bottom: 20px;" src="img/testimonio-1.png" alt="Testimonio 1" />
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px;">Y este es el tipo de reacciones que normalmente me
+                encuentro cuando presento las auditorías:</p>
+            <audio controls class="custom-audio">
+                <source src="media/sin nombre.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <div class="text-center fade-in" style="margin-top: 60px;">
+                <p style="font-size: 20px; margin-bottom: 30px;">
+                    Si te interesa saber cómo puedes mejorar tu estrategia SEO para aumentar tu tráfico y extender tu
+                    alcance orgánico en internet, puedo decirte cómo hacerlo.
+                </p>
+                <a href="#audit-cta" class="btn">Reservar auditoría SEO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="section">
+        <div class="container">
+            <div class="card fade-in"
+                style="border: 2px solid var(--accent); background: rgba(233, 80, 14, 0.05); padding: 50px; text-align: center;">
+                <h3 class="text-accent" style="font-size: 32px; margin-bottom: 30px;">Y asumo el riesgo yo - Garantía:
+                </h3>
+                <p style="font-size: 18px;">
+                    Si no soy capaz de encontrar al menos <strong>5 errores</strong> en tu estrategia que no
+                    sabías que estabas cometiendo, te devuelvo todo el dinero incluso tras darte el servicio.
+                </p>
+                <p style="font-size: 18px;">
+                    Adicionalmente, podrás quedarte con la auditoría para darle a tu equipo el listado de errores a
+                    corregir. <em>Sin coste.</em>
+                </p>
+                <div style="margin-top: 40px;">
+                    <a href="#audit-cta" class="btn">Reservar auditoría SEO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- P.S. & FINAL CTA -->
+    <section class="section" id="audit-cta">
+        <div class="container" style="max-width: 800px;">
+            <div class="fade-in"
+                style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border-left: 4px solid var(--accent);">
+                <p style="font-style: italic; color: #ccc;">
+                    <strong>P.D:</strong> Si te preguntas porqué mi web no posiciona en Google para palabras clave como
+                    "Consultor SEO" o parecidas, la respuesta es muy sencilla: Un 80% de mi tiempo laboral está
+                    destinado a darle buen servicio a mis clientes. El 20% restante lo empleo en mi negocio.
+                </p>
+                <p style="font-style: italic; color: #ccc; margin-top: 20px;">
+                    No tengo tiempo para trabajar mi propio SEO.<br>
+                    Por tanto, mi web se centra en vender.<br>
+                    Y mi método de adquisición de clientes es, ahora mismo, en frío.
+                </p>
+                <p style="font-style: italic; color: #ccc; margin-top: 20px;">
+                    Esa es la explicación.
+                </p>
+            </div>
+
+            <div class="text-center fade-in" style="margin-top: 80px;">
+                <h2 style="font-size: 32px;">Y eso es lo que te puedo contar de momento.<br>Si quieres explorar esta
+                    oportunidad, contacta:</h2>
+
+                <div style="margin-top: 40px; margin-bottom: 20px;">
+                    <a href="mailto:yerai@yerailorenzo.com" class="btn" style="transform: scale(1.1);">Reservar
+                        auditoría SEO</a>
+                </div>
+
+                <p style="font-size: 14px; opacity: 0.7;">
+                    Esta es la única vía para iniciar negocios conmigo ☝️
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <!-- Col 1: Brand & Newsletter -->
+                <div>
+                    <img class="noborder" src="img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo"
+                        style="width: 200px; margin-bottom: 20px;">
+                    <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
+
+                    <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
+                    <form action="#" class="footer-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn-small">Únete</button>
+                    </form>
+                    <div class="footer-legal-check">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Acepto la política de privacidad</label>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navegación -->
+                <div>
+                    <p class="footer-title">Navegación</p>
+                    <ul>
+                        <li><a href="#">Sobre mí</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal -->
+                <div>
+                    <p class="footer-title">Legal</p>
+                    <ul>
+                        <li><a href="#">Aviso legal</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contacto -->
+                <div>
+                    <p class="footer-title">Contacto</p>
+                    <a href="#">Teléfono: 622 77 17 78</a>
+
+                    <p class="footer-title" style="margin-top:15px">Redes sociales</p>
+                    <div class="social-links">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                <path
+                                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="https://twitter.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter X">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/yerailorenzo" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Google Maps (Perfil de Negocio) -->
+                        <a href="https://www.google.com/maps?cid=13333859496507057665" target="_blank"
+                            rel="noopener noreferrer" aria-label="Google Maps">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3.273 1.636c-.736 0-1.363.492-1.568 1.16L0 9.272c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.65 1.35 3 3 3 1.664 0 3-1.336 3-3 0 1.664 1.336 3 3 3s3-1.336 3-3l-1.705-6.476a1.646 1.646 0 0 0-1.568-1.16zm8.729 9.326c-.604 1.063-1.703 1.81-3.002 1.81-1.304 0-2.398-.747-3-1.806-.604 1.06-1.702 1.806-3 1.806-.484 0-.944-.1-1.363-.277v8.232c0 .9.736 1.637 1.636 1.637h17.454c.9 0 1.636-.737 1.636-1.637v-8.232a3.48 3.48 0 0 1-1.363.277c-1.304 0-2.398-.746-3-1.804-.602 1.058-1.696 1.804-3 1.804-1.299 0-2.394-.75-2.998-1.81zm5.725 3.765c.808 0 1.488.298 2.007.782l-.859.859a1.623 1.623 0 0 0-1.148-.447c-.98 0-1.772.827-1.772 1.806 0 .98.792 1.807 1.772 1.807.882 0 1.485-.501 1.615-1.191h-1.615v-1.16h2.826c.035.196.054.4.054.613 0 1.714-1.147 2.931-2.88 2.931a3 3 0 0 1 0-6z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                Copyright © 2025 Yerai Lorenzo
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Volver arriba"><svg viewBox="0 0 20 20">
+            <path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"></path>
+        </svg></button>
+
+    <!-- SCRIPTS -->
+    <script src="main.js"></script>
+    <div id="cookie-banner" class="cookie-banner">
+        <p>
+            We use cookies to improve your experience. By clicking "Accept", you agree to our use of cookies.
+        </p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies-btn">Accept</button>
+            <button id="decline-cookies-btn">Decline</button>
+        </div>
+
+        <button id="reset-consent-btn" class="reset-consent-btn" title="Manage Cookie Preferences">
+            Cookie Settings
+        </button>
+    </div>
+</body>
+
+</html>

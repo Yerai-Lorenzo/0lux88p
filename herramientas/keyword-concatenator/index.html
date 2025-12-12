@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Concatenator Pro - Yerai Lorenzo</title>
+
+    <!-- Website Global Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Tailwind CSS for tool styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons for crisp, clean icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom styles to complement Tailwind and match site theme */
+
+        /* Override Tailwind defaults with Site Variables */
+        body {
+            --tool-bg: var(--bg-body);
+            --tool-card: var(--bg-card);
+            --tool-card-hover: var(--bg-card-hover);
+            --tool-text: var(--text-main);
+            --tool-text-muted: var(--text-muted);
+            --tool-accent: var(--accent);
+            --tool-border: rgba(255, 255, 255, 0.1);
+            --tool-input-bg: #000000;
+        }
+
+        body {
+            background-color: var(--tool-bg) !important;
+            color: var(--tool-text) !important;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: var(--tool-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        /* Dragging styles */
+        .dragging {
+            opacity: 0.9;
+            transform: rotate(1.5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--tool-accent);
+            cursor: grabbing;
+        }
+
+        .column-placeholder {
+            background-color: rgba(233, 80, 14, 0.1);
+            /* Accent with opacity */
+            border: 2px dashed var(--tool-accent);
+            border-radius: 0.75rem;
+            min-height: 300px;
+            transition: all 0.2s ease;
+        }
+
+        /* Toggle switch styling */
+        .toggle-checkbox:checked+.toggle-label {
+            background-color: var(--tool-accent);
+        }
+
+        .toggle-checkbox:checked+.toggle-label .toggle-dot {
+            transform: translateX(1.5rem);
+        }
+
+        /* Custom checkbox color */
+        .form-checkbox:checked {
+            background-color: var(--tool-accent);
+            border-color: var(--tool-accent);
+        }
+
+        .tool-container {
+            padding-top: 40px;
+        }
+
+        /* Utility classes to map to site variables */
+        .bg-site-card {
+            background-color: var(--tool-card);
+        }
+
+        .bg-site-card:hover {
+            background-color: var(--tool-card-hover);
+        }
+
+        .bg-site-bg {
+            background-color: var(--tool-bg);
+        }
+
+        .bg-site-input {
+            background-color: var(--tool-input-bg);
+        }
+
+        .bg-site-hover {
+            transition: background-color 0.2s;
+        }
+
+        .bg-site-hover:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .text-site-main {
+            color: var(--tool-text);
+        }
+
+        .text-site-muted {
+            color: var(--tool-text-muted);
+        }
+
+        .text-site-accent {
+            color: var(--tool-accent);
+        }
+
+        .bg-site-accent {
+            background-color: var(--tool-accent);
+        }
+
+        .bg-site-accent:hover {
+            background-color: #ff5e1a;
+        }
+
+        /* Lighter orange */
+
+        .focus\:ring-site-accent:focus {
+            --tw-ring-color: var(--tool-accent) !important;
+        }
+
+        .border-site {
+            border-color: var(--tool-border);
+        }
+
+        /* Input styles override */
+        textarea,
+        input[type="text"] {
+            background-color: var(--tool-input-bg) !important;
+            border-color: var(--tool-border) !important;
+            color: var(--tool-text) !important;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus {
+            border-color: var(--tool-accent) !important;
+            --tw-ring-color: var(--tool-accent) !important;
+        }
+
+        /* Button overrides */
+        .btn-accent {
+            background-color: var(--tool-accent) !important;
+        }
+
+        .btn-accent:hover {
+            background-color: #ff5e1a !important;
+        }
+    </style>
+</head>
+
+<body class="home-style">
+
+    <!-- HEADER -->
+    <header>
+        <div class="container-wide nav-flex">
+            <a href="../home.html" class="logo">
+                <img class="noborder" src="../../img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="desktop-nav">
+                <a href="../about.html" class="nav-link">Sobre mí</a>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Herramientas</a>
+                    <div class="dropdown-content">
+                        <a href="#">Auditoría Técnica</a>
+                        <a href="#">Análisis de Logs</a>
+                        <a href="#">Keyword Research</a>
+                    </div>
+                </div>
+
+                <a href="../post.html" class="nav-link">Contacto</a>
+                <a href="#audit" class="btn btn-outline">Pide Presupuesto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container-wide tool-container">
+        <!-- Tool Title -->
+        <div class="mb-8 mt-8">
+            <div class="flex items-center mb-4">
+                <svg class="h-8 w-8 text-site-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="m19 19-7-7 7-7" />
+                </svg>
+                <h1 class="text-3xl font-bold ml-3 text-site-main">Keyword Concatenator</h1>
+            </div>
+            <p class="text-site-muted">Combina y mezcla tus palabras clave para generar nuevas oportunidades de SEO.</p>
+        </div>
+
+        <!-- Input Columns Container -->
+        <div id="columns-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Columns are generated by JS -->
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings-section" class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Permutations -->
+                <div class="bg-site-card p-6 rounded-xl shadow-lg lg:col-span-2 border border-site">
+                    <div class="flex justify-between items-center border-b border-site pb-4 mb-4">
+                        <h4 class="font-bold text-lg text-site-main">Permutationes</h4>
+                        <div class="select-buttons flex space-x-2">
+                            <button type="button" data-select-all="permutations"
+                                class="text-xs font-semibold px-2 py-1 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Todas</button>
+                            <button type="button" data-deselect-all="permutations"
+                                class="text-xs font-semibold px-2 py-1 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Ninguna</button>
+                        </div>
+                    </div>
+                    <div id="permutations-container" class="space-y-6">
+                        <!-- Permutation options will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Match Types -->
+                <div class="bg-site-card p-6 rounded-xl shadow-lg lg:col-span-1 border border-site">
+                    <div class="flex justify-between items-center border-b border-site pb-4 mb-4">
+                        <h4 class="font-bold text-lg text-site-main">Concordancia</h4>
+                        <div class="select-buttons flex space-x-2">
+                            <button type="button" data-select-all="god-mode"
+                                class="text-xs font-semibold px-2 py-1 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Todas</button>
+                            <button type="button" data-deselect-all="god-mode"
+                                class="text-xs font-semibold px-2 py-1 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Ninguna</button>
+                        </div>
+                    </div>
+                    <div id="god-mode-container" class="space-y-3">
+                        <!-- God mode options will be generated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concatenate Button -->
+        <div class="mb-8 flex justify-center">
+            <button id="concatenate-button"
+                class="w-full lg:w-auto flex items-center justify-center px-12 py-3 btn-accent text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-75 transition-all duration-200 text-lg">
+                <i data-lucide="blinds" class="w-6 h-6 mr-3"></i>
+                Concatenar Keywords
+            </button>
+        </div>
+
+
+        <!-- Output Container -->
+        <div id="output-container-wrapper" class="bg-site-card rounded-xl shadow-lg p-6 hidden border border-site">
+            <div class="flex justify-between items-center border-b border-site pb-4 mb-4">
+                <h2 class="text-xl font-bold text-site-main">Resultados</h2>
+                <button id="clear-output-button"
+                    class="text-xs font-semibold px-3 py-1.5 rounded-md bg-site-hover border border-site hover:bg-red-900/30 hover:border-red-500 transition-colors flex items-center text-site-main">
+                    <i data-lucide="trash-2" class="w-4 h-4 mr-1.5"></i> Borrar
+                </button>
+            </div>
+            <div id="warnings-container" class="mb-4"></div>
+            <div id="output-container" class="space-y-6 max-h-[70vh] overflow-y-auto pr-2">
+                <!-- Results will be generated here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container-wide">
+            <div class="footer-grid">
+                <!-- Col 1: Brand & Newsletter -->
+                <div>
+                    <img class="noborder" src="../../img/yerai-lorenzo-logo-blanco.svg" alt="Yerai Lorenzo Logo"
+                        style="width: 200px; margin-bottom: 20px;">
+                    <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
+
+                    <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
+                    <form action="#" class="footer-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn-small">Únete</button>
+                    </form>
+                    <div class="footer-legal-check">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Acepto la política de privacidad</label>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navegación -->
+                <div>
+                    <p class="footer-title">Navegación</p>
+                    <ul>
+                        <li><a href="../about.html">Sobre mí</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal -->
+                <div>
+                    <p class="footer-title">Legal</p>
+                    <ul>
+                        <li><a href="#">Aviso legal</a></li>
+                        <li><a href="#">Política de cookies</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contacto -->
+                <div>
+                    <p class="footer-title">Contacto</p>
+                    <a href="#">Teléfono: 622 77 17 78</a>
+
+                    <p class="footer-title" style="margin-top:15px">Redes sociales</p>
+                    <div class="social-links">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                <path
+                                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="https://twitter.com/yerailorenzoseo" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter X">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/yerailorenzo" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+                                <path
+                                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- Google Maps (Perfil de Negocio) -->
+                        <a href="https://www.google.com/maps?cid=13333859496507057665" target="_blank"
+                            rel="noopener noreferrer" aria-label="Google Maps">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3.273 1.636c-.736 0-1.363.492-1.568 1.16L0 9.272c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.664 1.336 3 3 3a3 3 0 0 0 3-3c0 1.65 1.35 3 3 3 1.664 0 3-1.336 3-3 0 1.664 1.336 3 3 3s3-1.336 3-3l-1.705-6.476a1.646 1.646 0 0 0-1.568-1.16zm8.729 9.326c-.604 1.063-1.703 1.81-3.002 1.81-1.304 0-2.398-.747-3-1.806-.604 1.06-1.702 1.806-3 1.806-.484 0-.944-.1-1.363-.277v8.232c0 .9.736 1.637 1.636 1.637h17.454c.9 0 1.636-.737 1.636-1.637v-8.232a3.48 3.48 0 0 1-1.363.277c-1.304 0-2.398-.746-3-1.804-.602 1.058-1.696 1.804-3 1.804-1.299 0-2.394-.75-2.998-1.81zm5.725 3.765c.808 0 1.488.298 2.007.782l-.859.859a1.623 1.623 0 0 0-1.148-.447c-.98 0-1.772.827-1.772 1.806 0 .98.792 1.807 1.772 1.807.882 0 1.485-.501 1.615-1.191h-1.615v-1.16h2.826c.035.196.054.4.054.613 0 1.714-1.147 2.931-2.88 2.931a3 3 0 0 1 0-6z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                Copyright © 2025 Yerai Lorenzo
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Volver arriba"><svg viewBox="0 0 20 20">
+            <path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"></path>
+        </svg></button>
+
+    <!-- SCRIPTS -->
+    <script src="../main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const columnsContainer = document.getElementById('columns-container');
+            const initialColumns = ['A', 'B', 'C', 'D'];
+
+            // --- RENDER INITIAL UI ---
+            const renderColumn = (colId, isChecked) => {
+                const columnTemplate = `
+                    <div class="p-5 border-b border-site flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="handle-container cursor-grab active:cursor-grabbing mr-3 text-site-muted hover:text-site-accent transition-colors" draggable="true">
+                                <i data-lucide="grip-vertical" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-site-main">Columna ${colId}</h3>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <div class="relative w-12 h-6 flex items-center bg-gray-600 rounded-full cursor-pointer">
+                                <input type="checkbox" id="toggle-${colId}" data-toggle-column="${colId}" class="sr-only toggle-checkbox" ${isChecked ? 'checked' : ''}/>
+                                <label for="toggle-${colId}" class="toggle-label block w-full h-full rounded-full cursor-pointer">
+                                  <span class="toggle-dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-200 ease-in-out"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-content p-5">
+                        <textarea data-column-input="${colId}" class="w-full h-48 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 transition-shadow duration-200 resize-none" placeholder="Añade tus keywords aquí..."></textarea>
+                        <div class="accordion mt-4">
+                            <div class="accordion-header flex justify-between items-center p-3 bg-site-hover rounded-lg cursor-pointer transition-colors">
+                                <span class="font-semibold text-sm text-site-main">Herramientas avanzadas</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-site-main"></i>
+                            </div>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                <div class="pt-4 space-y-3">
+                                    <button type="button" data-action='{"type": "clear-duplicates", "column": "${colId}"}' class="w-full text-sm text-left p-2 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Borrar duplicados</button>
+                                    <button type="button" data-action='{"type": "clear-blanks", "column": "${colId}"}' class="w-full text-sm text-left p-2 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors text-site-main">Borrar líneas vacías</button>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <input type="text" data-prefix="${colId}" placeholder="Prefijo" class="w-full text-sm rounded-md p-2 focus:ring-1 focus:ring-orange-500">
+                                        <input type="text" data-suffix="${colId}" placeholder="Sufijo" class="w-full text-sm rounded-md p-2 focus:ring-1 focus:ring-orange-500">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                const colDiv = document.createElement('div');
+                colDiv.className = 'column bg-site-card rounded-xl shadow-lg transition-all duration-300 border border-site';
+                colDiv.dataset.column = colId;
+                colDiv.draggable = true;
+                if (!isChecked) colDiv.classList.add('opacity-50');
+                colDiv.innerHTML = columnTemplate;
+                return colDiv;
+            };
+
+            const renderGodModeOptions = () => {
+                const container = document.getElementById('god-mode-container');
+                const options = [
+                    { key: 'broad', label: 'Concordancia amplia', checked: true },
+                    { key: 'phrase', label: 'Concordancia de frase', checked: false },
+                    { key: 'exact', label: 'Concordancia exacta', checked: false },
+                    { key: 'modified-broad', label: 'Amplia modificada', checked: false },
+                    { key: 'capitalise', label: 'Capitalizar', checked: false },
+                    { key: 'negative-broad', label: 'Negativa amplia', checked: false },
+                    { key: 'negative-phrase', label: 'Negativa de frase', checked: false },
+                    { key: 'negative-exact', label: 'Negativa exacta', checked: false },
+                ];
+                container.innerHTML = options.map(opt => `
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="checkbox" data-god-mode="${opt.key}" class="form-checkbox h-5 w-5 rounded bg-site-input border-site text-site-accent focus:ring-site-accent" ${opt.checked ? 'checked' : ''}>
+                        <span class="text-site-muted">${opt.label}</span>
+                    </label>
+                `).join('');
+            };
+
+            columnsContainer.innerHTML = '';
+            columnsContainer.appendChild(renderColumn('A', true));
+            columnsContainer.appendChild(renderColumn('B', true));
+            columnsContainer.appendChild(renderColumn('C', true));
+            columnsContainer.appendChild(renderColumn('D', false));
+            renderGodModeOptions();
+            lucide.createIcons();
+
+            // --- EVENT LISTENERS ---
+
+            // Accordion
+            columnsContainer.addEventListener('click', (e) => {
+                const header = e.target.closest('.accordion-header');
+                if (header) {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('i');
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.classList.add('rotate-180');
+                    }
+                }
+            });
+
+            // Column Drag & Drop
+            let draggedColumn = null;
+            let placeholder = null;
+
+            columnsContainer.addEventListener('dragstart', (e) => {
+                const handle = e.target.closest('.handle-container');
+                if (handle) {
+                    draggedColumn = e.target.closest('.column');
+                    setTimeout(() => {
+                        if (draggedColumn) draggedColumn.classList.add('dragging');
+                    }, 0);
+
+                    placeholder = document.createElement('div');
+                    placeholder.className = 'column-placeholder';
+                    placeholder.style.height = `${draggedColumn.offsetHeight}px`;
+                } else {
+                    e.preventDefault();
+                }
+            });
+
+            columnsContainer.addEventListener('dragend', () => {
+                if (draggedColumn) {
+                    draggedColumn.classList.remove('dragging');
+                    draggedColumn = null;
+                }
+                if (placeholder && placeholder.parentNode) {
+                    placeholder.parentNode.removeChild(placeholder);
+                }
+                placeholder = null;
+            });
+
+            columnsContainer.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                if (!draggedColumn || !placeholder) return;
+
+                const targetColumn = e.target.closest('.column:not(.dragging)');
+                if (targetColumn) {
+                    const rect = targetColumn.getBoundingClientRect();
+                    const isAfter = e.clientY > rect.top + rect.height / 2;
+
+                    if (isAfter) {
+                        columnsContainer.insertBefore(placeholder, targetColumn.nextSibling);
+                    } else {
+                        columnsContainer.insertBefore(placeholder, targetColumn);
+                    }
+                }
+            });
+
+            columnsContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (draggedColumn && placeholder && placeholder.parentNode) {
+                    placeholder.parentNode.insertBefore(draggedColumn, placeholder);
+                }
+            });
+
+
+            // Toggle column visibility
+            columnsContainer.addEventListener('change', (e) => {
+                const checkbox = e.target.closest('input[data-toggle-column]');
+                if (checkbox) {
+                    const columnEl = checkbox.closest('.column');
+                    columnEl.classList.toggle('opacity-50', !checkbox.checked);
+                    updatePermutationOptions();
+                }
+            });
+
+            // Advanced tool actions
+            columnsContainer.addEventListener('click', e => {
+                const button = e.target.closest('button[data-action]');
+                if (!button) return;
+
+                const action = JSON.parse(button.dataset.action);
+                const textarea = document.querySelector(`textarea[data-column-input="${action.column}"]`);
+                if (!textarea) return;
+
+                const lines = textarea.value.split('\n');
+                let newLines = [];
+
+                switch (action.type) {
+                    case 'clear-duplicates':
+                        newLines = [...new Set(lines.map(line => line.trim()).filter(Boolean))];
+                        break;
+                    case 'clear-blanks':
+                        newLines = lines.filter(line => line.trim() !== '');
+                        break;
+                }
+                textarea.value = newLines.join('\n');
+            });
+
+            // Select/Deselect All buttons
+            document.querySelectorAll('[data-select-all], [data-deselect-all]').forEach(button => {
+                button.addEventListener('click', () => {
+                    const type = button.dataset.selectAll || button.dataset.deselectAll;
+                    const isSelect = !!button.dataset.selectAll;
+                    const container = document.getElementById(`${type}-container`);
+                    container.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = isSelect);
+                });
+            });
+
+            // Main Concatenate Button
+            document.getElementById('concatenate-button').addEventListener('click', () => {
+                document.getElementById('output-container-wrapper').classList.remove('hidden');
+                concatenateKeywords();
+            });
+
+            // Clear Output Button
+            document.getElementById('clear-output-button').addEventListener('click', () => {
+                document.getElementById('output-container').innerHTML = '';
+                document.getElementById('warnings-container').innerHTML = '';
+                document.getElementById('output-container-wrapper').classList.add('hidden');
+            });
+
+            // Copy to clipboard functionality
+            document.getElementById('output-container').addEventListener('click', e => {
+                const copyBtn = e.target.closest('.copy-button');
+                if (copyBtn) {
+                    const pre = copyBtn.closest('.output-grouping').querySelector('pre');
+                    navigator.clipboard.writeText(pre.textContent).then(() => {
+                        const icon = copyBtn.querySelector('i');
+                        const originalIcon = icon.dataset.lucide;
+                        copyBtn.querySelector('span').textContent = 'Copiado!';
+                        icon.setAttribute('data-lucide', 'check');
+                        lucide.createIcons();
+                        setTimeout(() => {
+                            copyBtn.querySelector('span').textContent = 'Copiar todo';
+                            icon.setAttribute('data-lucide', originalIcon);
+                            lucide.createIcons();
+                        }, 2000);
+                    });
+                }
+            });
+
+            // --- CORE LOGIC ---
+            const getPermutations = (array) => {
+                const result = [];
+                const permute = (arr, memo = []) => {
+                    if (arr.length === 0) result.push(memo);
+                    for (let i = 0; i < arr.length; i++) {
+                        const current = arr.slice();
+                        const next = current.splice(i, 1);
+                        permute(current.slice(), memo.concat(next));
+                    }
+                };
+                permute(array);
+                return result;
+            };
+
+            const updatePermutationOptions = () => {
+                const container = document.getElementById('permutations-container');
+                container.innerHTML = '';
+                const selectedColumns = Array.from(document.querySelectorAll('input[data-toggle-column]:checked')).map(cb => cb.dataset.toggleColumn);
+
+                if (selectedColumns.length < 2) {
+                    container.innerHTML = '<p class="text-sm text-gray-400">Enable at least 2 columns to see permutation options.</p>';
+                    return;
+                }
+
+                const permutationsMap = {};
+                for (let i = 2; i <= selectedColumns.length; i++) {
+                    const getCombinations = (array, k) => {
+                        const result = [];
+                        const combine = (arr, start, data) => {
+                            if (data.length === k) { result.push([...data]); return; }
+                            for (let j = start; j < arr.length; j++) {
+                                data.push(arr[j]);
+                                combine(arr, j + 1, data);
+                                data.pop();
+                            }
+                        };
+                        combine(array, 0, []);
+                        return result;
+                    };
+
+                    getCombinations(selectedColumns, i).forEach(combo => {
+                        getPermutations(combo).forEach(perm => {
+                            if (!permutationsMap[perm.length]) permutationsMap[perm.length] = new Set();
+                            permutationsMap[perm.length].add(perm.join(','));
+                        });
+                    });
+                }
+
+                Object.keys(permutationsMap).sort((a, b) => b - a).forEach(len => {
+                    const groupDiv = document.createElement('div');
+
+                    const groupTitle = document.createElement('h5');
+                    groupTitle.className = 'font-semibold text-sm mb-3 text-site-accent';
+                    groupTitle.textContent = `Combinaciones de ${len} columnas`;
+                    groupDiv.appendChild(groupTitle);
+
+                    const labelsContainer = document.createElement('div');
+                    labelsContainer.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-2';
+
+                    Array.from(permutationsMap[len]).sort().forEach(permString => {
+                        const isDefault = len == selectedColumns.length && permString === selectedColumns.join(',');
+                        const label = document.createElement('label');
+                        label.className = 'flex items-center space-x-3 cursor-pointer';
+                        label.innerHTML = `
+                            <input type="checkbox" data-permutation="${permString}" class="form-checkbox h-5 w-5 rounded bg-site-input border-site text-site-accent focus:ring-site-accent" ${isDefault ? 'checked' : ''}>
+                            <span class="text-site-muted text-sm">${permString.split(',').join(' + ')}</span>
+                        `;
+                        labelsContainer.appendChild(label);
+                    });
+
+                    groupDiv.appendChild(labelsContainer);
+                    container.appendChild(groupDiv);
+                });
+            };
+
+            const concatenateKeywords = () => {
+                const outputContainer = document.getElementById('output-container');
+                const warningsContainer = document.getElementById('warnings-container');
+                outputContainer.innerHTML = '';
+                warningsContainer.innerHTML = '';
+
+                const columnValues = {};
+                initialColumns.forEach(col => {
+                    const textarea = document.querySelector(`textarea[data-column-input="${col}"]`);
+                    const prefix = document.querySelector(`input[data-prefix="${col}"]`).value || '';
+                    const suffix = document.querySelector(`input[data-suffix="${col}"]`).value || '';
+                    if (textarea) {
+                        columnValues[col] = textarea.value.split('\n').map(line => line.trim()).filter(Boolean).map(val => `${prefix}${val}${suffix}`);
+                    }
+                });
+
+                const selectedPermutations = Array.from(document.querySelectorAll('#permutations-container input:checked')).map(cb => cb.dataset.permutation.split(','));
+                const selectedGodModes = Array.from(document.querySelectorAll('#god-mode-container input:checked')).map(cb => cb.dataset.godMode);
+                const warnings = new Set();
+
+                if (selectedPermutations.length === 0 || selectedGodModes.length === 0) {
+                    outputContainer.innerHTML = '<p class="text-center text-gray-400">Please select at least one permutation and one match type.</p>';
+                    return;
+                }
+
+                let totalGenerated = 0;
+
+                selectedGodModes.forEach(godMode => {
+                    const resultsForMode = new Set();
+                    selectedPermutations.forEach(permArray => {
+
+                        const dataArrays = permArray.map(col => {
+                            if (columnValues[col].length === 0) {
+                                warnings.add(col);
+                                return ['']; // Use empty string to allow incomplete concatenation
+                            }
+                            return columnValues[col];
+                        });
+
+                        const cartesianProduct = (...a) => a.reduce((acc, val) => acc.flatMap(d => val.map(e => [d, e].flat())));
+                        const combinations = cartesianProduct(...dataArrays);
+
+                        combinations.forEach(combo => {
+                            let keyword = (Array.isArray(combo) ? combo.join(' ') : combo).replace(/\s+/g, ' ').trim();
+                            if (!keyword) return;
+
+                            switch (godMode) {
+                                case 'exact': keyword = `[${keyword}]`; break;
+                                case 'phrase': keyword = `"${keyword}"`; break;
+                                case 'modified-broad': keyword = keyword.split(' ').map(w => `+${w}`).join(' '); break;
+                                case 'capitalise': keyword = keyword.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '); break;
+                                case 'negative-exact': keyword = `-[${keyword}]`; break;
+                                case 'negative-phrase': keyword = `-"${keyword}"`; break;
+                                case 'negative-broad': keyword = `-${keyword.split(' ').join(' -')}`; break;
+                            }
+                            resultsForMode.add(keyword);
+                        });
+                    });
+
+                    if (resultsForMode.size > 0) {
+                        const godModeLabels = { 'broad': 'Broad Match', 'phrase': 'Phrase Match', 'exact': 'Exact Match', 'modified-broad': 'Modified Broad', 'capitalise': 'Capitalised', 'negative-broad': 'Negative Broad', 'negative-phrase': 'Negative Phrase', 'negative-exact': 'Negative Exact' };
+                        const outputGroup = document.createElement('div');
+                        outputGroup.className = 'output-grouping bg-site-bg p-4 rounded-lg border border-site';
+                        outputGroup.innerHTML = `
+                            <div class="flex justify-between items-center mb-3">
+                                <h5 class="font-bold text-site-accent">${godModeLabels[godMode]} <span class="text-xs text-site-muted font-medium ml-1">(${resultsForMode.size} keywords)</span></h5>
+                                <button class="copy-button text-xs font-semibold px-2 py-1 rounded-md bg-site-hover border border-site hover:border-site-accent transition-colors flex items-center text-site-main">
+                                    <i data-lucide="copy" class="w-4 h-4 mr-1.5"></i> <span>Copiar todos</span>
+                                </button>
+                            </div>
+                            <pre class="text-sm text-site-muted bg-site-card p-3 rounded-md max-h-60 overflow-auto border border-site">${[...resultsForMode].join('\n')}</pre>
+                        `;
+                        outputContainer.appendChild(outputGroup);
+                    }
+                });
+
+                if (warnings.size > 0) {
+                    warnings.forEach(col => {
+                        const warningEl = document.createElement('div');
+                        warningEl.className = 'bg-yellow-500/10 border border-yellow-500/30 text-yellow-300 text-sm rounded-lg p-3 mb-4 flex items-center';
+                        warningEl.innerHTML = `<i data-lucide="alert-triangle" class="w-5 h-5 mr-3 text-yellow-400"></i> ATENCIÓN! Columna ${col} vacía, concatenación incompleta.`;
+                        warningsContainer.appendChild(warningEl);
+                    });
+                }
+
+                if (totalGenerated === 0 && warnings.size === 0) {
+                    outputContainer.innerHTML = '<p class="text-center text-gray-400">No keywords generated. Make sure there is text in the selected columns.</p>';
+                }
+
+                lucide.createIcons();
+            };
+
+            // Initial setup
+            updatePermutationOptions();
+        });
+    </script>
+</body>
+
+</html>
