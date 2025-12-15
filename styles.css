@@ -1686,3 +1686,91 @@ body.home-style .toc-box {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* ==============================
+   FOOTER links
+   ============================== */
+
+/* Botones que sustituyen a links de texto en el footer */
+footer .footer-link-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    color: #a0a0a0;
+    /* igual que footer a */
+    font: inherit;
+    /* hereda tipografía del footer */
+    font-size: 17px;
+    /* igual que footer p */
+    line-height: 1.6;
+
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: inherit;
+    /* respeta el centrado en mobile */
+    display: inline;
+    /* se comporta como enlace */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+footer .footer-link-btn:hover {
+    color: var(--accent);
+    /* igual que footer a:hover */
+}
+
+footer .footer-link-btn:focus {
+    outline: none;
+    /* evitamos el outline “feo” por defecto */
+}
+
+footer .footer-link-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+footer .social-links .social-btn {
+    width: 42px;
+    height: 42px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+footer .social-links .social-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+footer .social-links .social-btn:focus {
+    outline: none;
+}
+
+footer .social-links .social-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* Tu regla existente .social-links svg ya sirve, pero la dejo por claridad */
+footer .social-links svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
