@@ -143,6 +143,11 @@ p {
     color: var(--text-muted);
 }
 
+ul,
+ol {
+    margin-bottom: 1.5em;
+}
+
 strong {
     font-weight: 600;
 }
