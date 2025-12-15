@@ -440,6 +440,10 @@ header .nav-link:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
+.wistia-facade.playing::before {
+    display: none;
+}
+
 .wistia-play-btn {
     position: relative;
     z-index: 2;
