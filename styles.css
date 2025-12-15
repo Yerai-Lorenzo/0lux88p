@@ -176,7 +176,6 @@ strong {
     color: white;
     box-shadow: 0 10px 30px -10px var(--accent-glow);
     transition: transform 0.2s, box-shadow 0.2s;
-    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .btn:hover {
