@@ -8,12 +8,139 @@
     <meta name="description"
         content="Descubre qué impide que tu web posicione con una auditoría SEO técnica y semántica de alto nivel.">
 
-    <link rel="stylesheet" href="https://yerai.pages.dev/styles.css">
     <style>
+        :root {
+            --bg-body: #ffffff;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --bg-card: #f4f4f4;
+            --accent: #e9500e;
+            --accent-glow: rgba(233, 80, 14, 0.3);
+            --radius: 12px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --container-width: 1000px;
+            --header-footer: #161616;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        body.home-style {
+            --bg-body: #0a0a0a;
+            --text-main: #f0f0f0;
+            --bg-card: #161616;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-weight: 700;
+            border-radius: 100px;
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+
+        header {
+            background-color: var(--header-footer);
+            position: relative;
+            width: 100%;
+            z-index: 10;
+            padding: 20px 0;
+        }
+
+        header.header-home {
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 16px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero-title,
+        h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
         strong {
             color: #fff;
         }
     </style>
+    <link rel="stylesheet" href="/styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/styles.css">
+    </noscript>
 </head>
 
 <body class="home-style">
@@ -385,7 +512,7 @@
         </svg></button>
 
     <!-- SCRIPTS -->
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
     <div id="cookie-banner" class="cookie-banner">
         <p>
             We use cookies to improve your experience. By clicking "Accept", you agree to our use of cookies.
