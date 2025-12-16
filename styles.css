@@ -801,9 +801,6 @@ footer a:hover {
 }
 
 /* 2. Media Query para Móviles */
-/* --- MOBILE MENU PREMIUM --- */
-
-/* --- MOBILE MENU PRO FINAL --- */
 
 @media (max-width: 768px) {
 
@@ -946,7 +943,23 @@ footer a:hover {
     }
 }
 
-/* ... (MANTENER TODO EL CÓDIGO ANTERIOR) ... */
+/* Ajustes formularios */
+input,
+textarea,
+select {
+    accent-color: var(--accent);
+    caret-color: var(--accent);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+    outline: 1px solid var(--accent);
+    /* Or just border-color if outline is none */
+    outline: none;
+    /* If using border-color replacement approach */
+}
 
 /* =========================================
    --- BLOG POST STYLES (NUEVO) ---
