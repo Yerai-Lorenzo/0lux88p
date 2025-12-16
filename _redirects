@@ -1,0 +1,14 @@
+# Exact Moves / Renames
+/featured-snippet-simulator/ /herramientas/featured-snippet-simulator/ 301
+/yerai-lorenzo-logo-blanco.svg /img/yerai-lorenzo-logo-blanco.svg 301
+/politica-de-privacidad/ /politica-privacidad/ 301
+
+# Missing Pages -> Redirect to Home
+/hablemos/ / 301
+/diccionario/ / 301
+/seo/ / 301
+/research/ / 301
+/url/ / 301
+/ecommerce/ / 301
+/servicios/ / 301
+/* / 301
