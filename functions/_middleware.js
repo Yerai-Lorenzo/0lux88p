@@ -7,7 +7,6 @@ export async function onRequest(context) {
     const gonePaths = new Set([
         '/modern.svg',
         '/cropped-favicon-32x32.png',
-        '/favicon.ico',
         '/cropped-favicon-180x180.png',
         '/cropped-favicon-192x192.png',
         '/gluglu-logo.svg',
