@@ -3,7 +3,7 @@ export async function onRequest(context) {
     const url = new URL(request.url);
     const pathname = url.pathname;
 
-    // Tu lista de rutas eliminadas
+    // 1. LISTA DE RUTAS ELIMINADAS (410 GONE)
     const gonePaths = new Set([
         '/modern.svg',
         '/cropped-favicon-32x32.png',
@@ -53,11 +53,13 @@ export async function onRequest(context) {
         '/siteground-optimizer-combined-js-128f0b4f3e0e51a706b288cb0d3ccece.js'
     ]);
 
-    // Manejar errores 410
+    // Si la ruta está en la lista negra, devolvemos 410 y paramos aquí.
     if (gonePaths.has(pathname)) {
         return new Response("410 Gone", { status: 410, statusText: "Gone" });
     }
 
-    // Continuar sirviendo la página normalmente
+    // 2. COMPORTAMIENTO POR DEFECTO
+    // Si no es un 410, dejamos que Cloudflare Pages procese la petición.
+    // Si la página no existe, Cloudflare mostrará automáticamente tu 404.html o el error predeterminado.
     return next();
 }
