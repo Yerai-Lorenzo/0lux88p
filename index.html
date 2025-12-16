@@ -486,22 +486,30 @@
                     <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
 
                     <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
+                    <script>
+                        function onSubmit(token) {
+                            document.getElementById("newsletter-form").submit();
+                        }
+                    </script>
                     <form id="newsletter-form"
                         action="https://api.encharge.io/v1/forms/04be312d-91ea-4734-9f8f-90ff6985a66f/submission/plain"
                         method="POST" class="footer-form">
 
-                        <div style="margin-bottom: 10px;">
-                            <input type="email" name="email" placeholder="Tu email" required class="form-control">
+                        <div style="display: flex; gap: 10px; align-items: stretch;">
+
+                            <input type="email" name="email" placeholder="Tu email" required
+                                style="flex-grow: 1; min-width: 0;" class="form-control"> <button
+                                class="g-recaptcha btn-small" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
+                                data-callback="onSubmit" data-action="submit"
+                                style="white-space: nowrap; cursor: pointer;">
+                                Únete
+                            </button>
                         </div>
 
-                        <div class="g-recaptcha" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
-                            style="margin-bottom: 15px;"></div>
-
-                        <button type="submit" class="btn-small">Únete</button>
-
-                        <div class="footer-legal-check" style="margin-top: 15px;">
+                        <div class="footer-legal-check"
+                            style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
                             <input type="checkbox" id="privacy" name="nativeFormMarketingConsent" required>
-                            <label for="privacy">
+                            <label for="privacy" style="margin: 0; font-size: 0.9em;">
                                 Acepto la <a href="https://yerailorenzo.es/politica-privacidad/" target="_blank"
                                     rel="noopener" style="color: inherit; text-decoration: underline;">política de
                                     privacidad</a>
