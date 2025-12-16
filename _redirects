@@ -11,4 +11,4 @@
 /url/ / 301
 /ecommerce/ / 301
 /servicios/ / 301
-/* / 301
+/* /:splat 301
