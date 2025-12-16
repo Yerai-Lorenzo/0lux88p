@@ -71,7 +71,13 @@
                     "https://www.linkedin.com/in/yerailorenzo",
                     "https://www.google.com/maps?cid=13333859496507057665"
                 ],
-                "jobTitle": "Consultor SEO",
+                 "jobTitle": {
+                    "@type": "Role",
+                    "name": "Consultor SEO",
+                    "sameAs": [
+                    "https://www.wikidata.org/wiki/Q4048723"
+                    ]
+                },
                 "worksFor": {
                     "@id": "https://yerailorenzo.com/#professionalservice"
                 },
@@ -80,7 +86,7 @@
                         "@type": "Thing",
                         "name": "Search Engine Optimization",
                         "alternateName": "SEO",
-                        "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization"
+                        "sameAs": ["https://en.wikipedia.org/wiki/Search_engine_optimization","https://www.wikidata.org/wiki/Q180711"]
                     },
                     {
                         "@type": "Thing",
@@ -218,241 +224,257 @@
             </nav>
         </div>
     </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero text-center" style="padding-top: 120px; padding-bottom: 60px;">
-        <div class="container">
-            <div class="fade-in">
-                <p class="pre-title">Consultor SEO</p>
-                <h1 class="hero-title">Aumenta tu <span class="text-accent">Alcance Orgánico</span></h1>
-                <p style="max-width: 800px; margin: 20px auto; font-size: 20px;">
-                    Adquirir un nuevo lead suele costar entre 5 y 7 veces más que lograr que tus actuales clientes te
-                    vuelvan a comprar. Obtener puestos altos en más consultas en buscadores te permitirá extender la
-                    presencia digital de tu negocio de forma orgánica, reduciendo el CAC y asegurando posiciones que tu
-                    competencia no te podrá robar fácilmente.
-                </p>
-                <p style="margin-top: 30px; font-weight: 600;">
-                    El primer paso para trabajar conmigo es contratar una auditoría
-                </p>
-            </div>
-
-            <div class="video-wrapper fade-in" style="margin-top: 40px;">
-                <!-- Wistia-like Facade -->
-                <div class="wistia-facade"
-                    style="background-image: url('https://yerai.pages.dev/img/yerai-video-home.avif');"
-                    onclick="playVideo(this, '0Q1BLSOF76o')">
-                    <div class="wistia-play-btn"></div>
-                </div>
-            </div>
-
-            <script>
-                function playVideo(container, videoId) {
-                    container.removeAttribute("onclick");
-                    container.classList.add("playing");
-                    container.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?si=8VpFe7dDHA_K22zC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%; height:100%; border:0;"></iframe>`;
-                }
-            </script>
-
-            <div class="fade-in" style="margin-top: 50px;">
-                <a href="mailto:yerai@yerailorenzo.com" class="btn">Descubre qué está fallando en tu estrategia SEO</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AUTHORITY & CONSTRAINTS -->
-    <section class="section" style="padding-top:0px;">
-        <div class=" container text-center">
-            <div class="fade-in" style="max-width: 900px; margin: 0 auto; margin-bottom: 80px;">
-                <p style="font-style: italic; font-size: 18px; color: var(--text-muted);">
-                    He sido reconocido por James Dooley y Karl Hudson (dos de los consultores SEO más aclamados de UK)
-                    como uno de los 20 consultores de SEO técnico más avanzados del mundo. Y FatRank me ha listado como
-                    uno de los 16 mejores consultores de SEO semántico a seguir en 2025.
-                </p>
-                <p style="font-size: 14px; margin-top: 10px; color: #555;">(Y no, no pagué por salir en esa lista)</p>
-            </div>
-
-            <div class="fade-in">
-                <h2 style="font-size: 36px; line-height: 1.2;">Dado que no soy una agencia, sino un consultor SEO
-                    independiente,<br>
-                    <span class="text-accent">sólo puedo dar servicio a 3 clientes a la vez</span>
-                </h2>
-                <p style="max-width: 700px; margin: 30px auto;">
-                    Por ese motivo, no tengo 100 casos de éxito que mostrarte. Porque:</p>
-                <ol class="styled-list">
-                    <li>Más que presumir estoy interesado en cumplir mi responsabilidad,</li>
-                    <li>mantengo los datos mis clientes de forma absolutamente privada para que la competencia no pueda
-                        saber quiénes son, y</li>
-                    <li>busco relaciones a largo plazo.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
-    <!-- CASE STUDY -->
-    <section class="section" style="background-color: var(--bg-card);">
-        <div class="container">
-            <div class="comparison" style="align-items: flex-start;">
-                <!-- Column 1: Text -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero text-center" style="padding-top: 120px; padding-bottom: 60px;">
+            <div class="container">
                 <div class="fade-in">
-                    <p style="font-size: 20px; font-weight: 500; margin-bottom: 20px;">
-                        Sin embargo, le pedí a uno de mis clientes recientes
-                        (he estado trabajando con él desde hace 1 año), que me
-                        permitiera mostrar los resultados que estoy generando
-                        para él - sin mostrar su nombre, ni el de su empresa.
+                    <p class="pre-title">Consultor SEO</p>
+                    <h1 class="hero-title">Aumenta tu <span class="text-accent">Alcance Orgánico</span></h1>
+                    <p style="max-width: 800px; margin: 20px auto; font-size: 20px;">
+                        Adquirir un nuevo lead suele costar entre 5 y 7 veces más que lograr que tus actuales clientes
+                        te
+                        vuelvan a comprar. Obtener puestos altos en más consultas en buscadores te permitirá extender la
+                        presencia digital de tu negocio de forma orgánica, reduciendo el CAC y asegurando posiciones que
+                        tu
+                        competencia no te podrá robar fácilmente.
                     </p>
-                    <p style="font-size: 20px; font-weight: 500; color:white;">
-                        En un año, su tráfico no sólo <span class="text-accent">alcanzó el máximo histórico</span> (a
-                        pesar de que el sitio sufrió una
-                        penalización manual y otra algorítmica), sino que su tráfico en los últimos 3 meses <span
-                            class="text-accent">ha crecido
-                            en más de 30%</span> y la <span class="text-accent">visibilidad orgánica se ha
-                            duplicado</span>.
+                    <p style="margin-top: 30px; font-weight: 600;">
+                        El primer paso para trabajar conmigo es contratar una auditoría
                     </p>
                 </div>
 
-                <!-- Column 2: Image -->
+                <div class="video-wrapper fade-in" style="margin-top: 40px;">
+                    <!-- Wistia-like Facade -->
+                    <div class="wistia-facade"
+                        style="background-image: url('https://yerai.pages.dev/img/yerai-video-home.avif');"
+                        onclick="playVideo(this, '0Q1BLSOF76o')">
+                        <div class="wistia-play-btn"></div>
+                    </div>
+                </div>
+
+                <script>
+                    function playVideo(container, videoId) {
+                        container.removeAttribute("onclick");
+                        container.classList.add("playing");
+                        container.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?si=8VpFe7dDHA_K22zC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%; height:100%; border:0;"></iframe>`;
+                    }
+                </script>
+
+                <div class="fade-in" style="margin-top: 50px;">
+                    <a href="mailto:yerai@yerailorenzo.com" class="btn">Descubre qué está fallando en tu estrategia
+                        SEO</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTHORITY & CONSTRAINTS -->
+        <section class="section" style="padding-top:0px;">
+            <div class=" container text-center">
+                <div class="fade-in" style="max-width: 900px; margin: 0 auto; margin-bottom: 80px;">
+                    <p style="font-style: italic; font-size: 18px; color: var(--text-muted);">
+                        He sido reconocido por James Dooley y Karl Hudson (dos de los consultores SEO más aclamados de
+                        UK)
+                        como uno de los 20 consultores de SEO técnico más avanzados del mundo. Y FatRank me ha listado
+                        como
+                        uno de los 16 mejores consultores de SEO semántico a seguir en 2025.
+                    </p>
+                    <p style="font-size: 14px; margin-top: 10px; color: #555;">(Y no, no pagué por salir en esa lista)
+                    </p>
+                </div>
+
                 <div class="fade-in">
-                    <img src="img/ahrefs-traffic.avif" alt="Gráfico de resultados SEO Ahrefs"
-                        style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
-                    <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Visión global del
-                        tráfico</p>
-                    <img src="img/gsc-3m-yoy.avif" alt="Gráfico de resultados SEO GSC"
-                        style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
-                    <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Comparación tráfico
-                        año a año. El sitio tiene 400 páginas, y todas aparencen en la primera página de Google para la
-                        consulta principal.</p>
+                    <h2 style="font-size: 36px; line-height: 1.2;">Dado que no soy una agencia, sino un consultor SEO
+                        independiente,<br>
+                        <span class="text-accent">sólo puedo dar servicio a 3 clientes a la vez</span>
+                    </h2>
+                    <p style="max-width: 700px; margin: 30px auto;">
+                        Por ese motivo, no tengo 100 casos de éxito que mostrarte. Porque:</p>
+                    <ol class="styled-list">
+                        <li>Más que presumir estoy interesado en cumplir mi responsabilidad,</li>
+                        <li>mantengo los datos mis clientes de forma absolutamente privada para que la competencia no
+                            pueda
+                            saber quiénes son, y</li>
+                        <li>busco relaciones a largo plazo.</li>
+                    </ol>
                 </div>
             </div>
+        </section>
 
-            <!-- Results Context -->
-            <div class="fade-in" style="margin-top: 60px;">
-                <h3>Estos resultados se obtuvieron aún cuando:</h3>
-                <ul class="check-list">
-                    <li>Google implementó las AI Overviews y el modo IA, que redujeron los clicks en la mayoría de
-                        sitios a la mitad, como confirmaron los medios más relevantes del mundo del SEO, como SEJ...
-                    </li>
-                    <li>Sin usar a un gran equipo de redactores, sólo trabajaron 2 personas en los contenidos.</li>
-                    <li>Sin hacer nada de linkbuilding ni RP digitales.</li>
-                    <li>Y con un presupuesto de 27.000€ anuales.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        <!-- CASE STUDY -->
+        <section class="section" style="background-color: var(--bg-card);">
+            <div class="container">
+                <div class="comparison" style="align-items: flex-start;">
+                    <!-- Column 1: Text -->
+                    <div class="fade-in">
+                        <p style="font-size: 20px; font-weight: 500; margin-bottom: 20px;">
+                            Sin embargo, le pedí a uno de mis clientes recientes
+                            (he estado trabajando con él desde hace 1 año), que me
+                            permitiera mostrar los resultados que estoy generando
+                            para él - sin mostrar su nombre, ni el de su empresa.
+                        </p>
+                        <p style="font-size: 20px; font-weight: 500; color:white;">
+                            En un año, su tráfico no sólo <span class="text-accent">alcanzó el máximo histórico</span>
+                            (a
+                            pesar de que el sitio sufrió una
+                            penalización manual y otra algorítmica), sino que su tráfico en los últimos 3 meses <span
+                                class="text-accent">ha crecido
+                                en más de 30%</span> y la <span class="text-accent">visibilidad orgánica se ha
+                                duplicado</span>.
+                        </p>
+                    </div>
 
-    <!-- PHILOSOPHY -->
-    <section class="section">
-        <div class="container text-center">
-            <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
-                <h2>Sin embargo, no te confundas,<br><span class="text-accent">no te muestro esto para
-                        presumir.</span></h2>
-                <p>
-                    No creo que sean resultados astronómicos. Son buenos resultados. Competimos contra gigantes que
-                    tienen miles de páginas más que nosotros, y equipos y presupuestos de 5 a 10 veces superiores.
-                    Imagina lo que podríamos hacer si tuviéramos los mismos recursos.
-                </p>
-                <p>Te los enseño porque yo, como
-                    empresario, si fuera a plantearme hacer negocios conmigo, me gustaría, al menos, ver una prueba de
-                    que lo que hago funciona.
-                </p>
-                <p style="font-weight: 700; font-size: 20px; margin-top: 20px;">Así que te la entrego.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section" style="background-color: #111;">
-        <div class="container">
-            <div class="text-center fade-in" style="margin-bottom: 60px;">
-                <h3>Con respecto a mis auditorías, esto es lo que<br>otros clientes han opinado de ellas:</h3>
-                <p style="max-width: 700px; margin: 20px auto; font-size: 16px; color: #777;">
-                    (No son ni mis vecinos, ni mis primos, ni amigos, ni tiré de contactos. Son opiniones de clientes
-                    que contacté en frío, por email, y que decidieron contratar mis auditorías):
-                </p>
-            </div>
-
-            <div class="testimonial-grid">
-                <!-- Testimonial 2 -->
-                <div class="card fade-in">
-                    <img style="margin-bottom: 20px;" src="img/testimonio-2.avif" alt="Testimonio 2" />
+                    <!-- Column 2: Image -->
+                    <div class="fade-in">
+                        <img src="img/ahrefs-traffic.avif" alt="Gráfico de resultados SEO Ahrefs"
+                            style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                        <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Visión global del
+                            tráfico</p>
+                        <img src="img/gsc-3m-yoy.avif" alt="Gráfico de resultados SEO GSC"
+                            style="width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                        <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #555;">Comparación
+                            tráfico
+                            año a año. El sitio tiene 400 páginas, y todas aparencen en la primera página de Google para
+                            la
+                            consulta principal.</p>
+                    </div>
                 </div>
-                <!-- Testimonial 1 -->
-                <div class="card fade-in">
-                    <img style="margin-bottom: 20px;" src="img/testimonio-1.avif" alt="Testimonio 1" />
+
+                <!-- Results Context -->
+                <div class="fade-in" style="margin-top: 60px;">
+                    <h3>Estos resultados se obtuvieron aún cuando:</h3>
+                    <ul class="check-list">
+                        <li>Google implementó las AI Overviews y el modo IA, que redujeron los clicks en la mayoría de
+                            sitios a la mitad, como confirmaron los medios más relevantes del mundo del SEO, como SEJ...
+                        </li>
+                        <li>Sin usar a un gran equipo de redactores, sólo trabajaron 2 personas en los contenidos.</li>
+                        <li>Sin hacer nada de linkbuilding ni RP digitales.</li>
+                        <li>Y con un presupuesto de 27.000€ anuales.</li>
+                    </ul>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px;">Y este es el tipo de reacciones que normalmente me
-                encuentro cuando presento las auditorías:</p>
-            <audio controls class="custom-audio">
-                <source src="media/sin nombre.mp3" type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-            <div class="text-center fade-in" style="margin-top: 60px;">
-                <p style="font-size: 20px; margin-bottom: 30px;">
-                    Si te interesa saber cómo puedes mejorar tu estrategia SEO para aumentar tu tráfico y extender tu
-                    alcance orgánico en internet, puedo decirte cómo hacerlo.
-                </p>
-                <a href="mailto:yerai@yerailorenzo.com" class="btn">Reservar auditoría SEO</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- GUARANTEE -->
-    <section class="section">
-        <div class="container">
-            <div class="card fade-in"
-                style="border: 2px solid var(--accent); background: rgba(233, 80, 14, 0.05); padding: 50px; text-align: center;">
-                <h3 class="text-accent" style="font-size: 32px; margin-bottom: 30px;">Y asumo el riesgo yo - Garantía:
-                </h3>
-                <p style="font-size: 18px;">
-                    Si no soy capaz de encontrar al menos <strong>5 errores</strong> en tu estrategia que no
-                    sabías que estabas cometiendo, te devuelvo todo el dinero incluso tras darte el servicio.
-                </p>
-                <p style="font-size: 18px;">
-                    Adicionalmente, podrás quedarte con la auditoría para darle a tu equipo el listado de errores a
-                    corregir. <em>Sin coste.</em>
-                </p>
-                <div style="margin-top: 40px;">
+        <!-- PHILOSOPHY -->
+        <section class="section">
+            <div class="container text-center">
+                <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+                    <h2>Sin embargo, no te confundas,<br><span class="text-accent">no te muestro esto para
+                            presumir.</span></h2>
+                    <p>
+                        No creo que sean resultados astronómicos. Son buenos resultados. Competimos contra gigantes que
+                        tienen miles de páginas más que nosotros, y equipos y presupuestos de 5 a 10 veces superiores.
+                        Imagina lo que podríamos hacer si tuviéramos los mismos recursos.
+                    </p>
+                    <p>Te los enseño porque yo, como
+                        empresario, si fuera a plantearme hacer negocios conmigo, me gustaría, al menos, ver una prueba
+                        de
+                        que lo que hago funciona.
+                    </p>
+                    <p style="font-weight: 700; font-size: 20px; margin-top: 20px;">Así que te la entrego.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" style="background-color: #111;">
+            <div class="container">
+                <div class="text-center fade-in" style="margin-bottom: 60px;">
+                    <h3>Con respecto a mis auditorías, esto es lo que<br>otros clientes han opinado de ellas:</h3>
+                    <p style="max-width: 700px; margin: 20px auto; font-size: 16px; color: #777;">
+                        (No son ni mis vecinos, ni mis primos, ni amigos, ni tiré de contactos. Son opiniones de
+                        clientes
+                        que contacté en frío, por email, y que decidieron contratar mis auditorías):
+                    </p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <!-- Testimonial 2 -->
+                    <div class="card fade-in">
+                        <img style="margin-bottom: 20px;" src="img/testimonio-2.avif" alt="Testimonio 2" />
+                    </div>
+                    <!-- Testimonial 1 -->
+                    <div class="card fade-in">
+                        <img style="margin-bottom: 20px;" src="img/testimonio-1.avif" alt="Testimonio 1" />
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px;">Y este es el tipo de reacciones que normalmente me
+                    encuentro cuando presento las auditorías:</p>
+                <audio controls class="custom-audio">
+                    <source src="media/sin nombre.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                <div class="text-center fade-in" style="margin-top: 60px;">
+                    <p style="font-size: 20px; margin-bottom: 30px;">
+                        Si te interesa saber cómo puedes mejorar tu estrategia SEO para aumentar tu tráfico y extender
+                        tu
+                        alcance orgánico en internet, puedo decirte cómo hacerlo.
+                    </p>
                     <a href="mailto:yerai@yerailorenzo.com" class="btn">Reservar auditoría SEO</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- P.S. & FINAL CTA -->
-    <section class="section" id="audit-cta" style="padding-top:0px;">
-        <div class="container" style="max-width: 800px;">
-            <div class="fade-in"
-                style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border-left: 4px solid var(--accent);">
-                <p style="font-style: italic; color: #ccc;">
-                    <strong>P.D:</strong> Si te preguntas porqué mi web no posiciona en Google para palabras clave como
-                    "Consultor SEO" o parecidas, la respuesta es muy sencilla: Un 80% de mi tiempo laboral está
-                    destinado a darle buen servicio a mis clientes. El 20% restante lo empleo en mi negocio.
-                </p>
-                <p style="font-style: italic; color: #ccc; margin-top: 20px;">
-                    No tengo tiempo para trabajar mi propio SEO.<br>
-                    Por tanto, mi web se centra en vender.<br>
-                    Y mi método de adquisición de clientes es, ahora mismo, en frío.
-                </p>
-                <p style="font-style: italic; color: #ccc; margin-top: 20px;">
-                    Esa es la explicación.
-                </p>
+        <!-- GUARANTEE -->
+        <section class="section">
+            <div class="container">
+                <div class="card fade-in"
+                    style="border: 2px solid var(--accent); background: rgba(233, 80, 14, 0.05); padding: 50px; text-align: center;">
+                    <h3 class="text-accent" style="font-size: 32px; margin-bottom: 30px;">Y asumo el riesgo yo -
+                        Garantía:
+                    </h3>
+                    <p style="font-size: 18px;">
+                        Si no soy capaz de encontrar al menos <strong>5 errores</strong> en tu estrategia que no
+                        sabías que estabas cometiendo, te devuelvo todo el dinero incluso tras darte el servicio.
+                    </p>
+                    <p style="font-size: 18px;">
+                        Adicionalmente, podrás quedarte con la auditoría para darle a tu equipo el listado de errores a
+                        corregir. <em>Sin coste.</em>
+                    </p>
+                    <div style="margin-top: 40px;">
+                        <a href="mailto:yerai@yerailorenzo.com" class="btn">Reservar auditoría SEO</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="text-center fade-in" style="margin-top: 80px;">
-                <h2 style="font-size: 32px;">Y eso es lo que te puedo contar de momento.<br>Si quieres explorar esta
-                    oportunidad, contacta:</h2>
-
-                <div style="margin-top: 40px; margin-bottom: 20px;">
-                    <a href="mailto:yerai@yerailorenzo.com" class="btn" style="transform: scale(1.1);">Reservar
-                        auditoría SEO</a>
+        <!-- P.S. & FINAL CTA -->
+        <section class="section" id="audit-cta" style="padding-top:0px;">
+            <div class="container" style="max-width: 800px;">
+                <div class="fade-in"
+                    style="background: var(--bg-card); padding: 40px; border-radius: var(--radius); border-left: 4px solid var(--accent);">
+                    <p style="font-style: italic; color: #ccc;">
+                        <strong>P.D:</strong> Si te preguntas porqué mi web no posiciona en Google para palabras clave
+                        como
+                        "Consultor SEO" o parecidas, la respuesta es muy sencilla: Un 80% de mi tiempo laboral está
+                        destinado a darle buen servicio a mis clientes. El 20% restante lo empleo en mi negocio.
+                    </p>
+                    <p style="font-style: italic; color: #ccc; margin-top: 20px;">
+                        No tengo tiempo para trabajar mi propio SEO.<br>
+                        Por tanto, mi web se centra en vender.<br>
+                        Y mi método de adquisición de clientes es, ahora mismo, en frío.
+                    </p>
+                    <p style="font-style: italic; color: #ccc; margin-top: 20px;">
+                        Esa es la explicación.
+                    </p>
                 </div>
 
-                <p style="font-size: 14px; opacity: 0.7;">
-                    Esta es la única vía para iniciar negocios conmigo ☝️
-                </p>
+                <div class="text-center fade-in" style="margin-top: 80px;">
+                    <h2 style="font-size: 32px;">Y eso es lo que te puedo contar de momento.<br>Si quieres explorar esta
+                        oportunidad, contacta:</h2>
+
+                    <div style="margin-top: 40px; margin-bottom: 20px;">
+                        <a href="mailto:yerai@yerailorenzo.com" class="btn" style="transform: scale(1.1);">Reservar
+                            auditoría SEO</a>
+                    </div>
+
+                    <p style="font-size: 14px; opacity: 0.7;">
+                        Esta es la única vía para iniciar negocios conmigo ☝️
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <!-- FOOTER -->
     <footer>
         <div class="container-wide">
@@ -464,15 +486,43 @@
                     <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
 
                     <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
-                    <form action="#" class="footer-form">
-                        <input type="email" placeholder="Tu email" required>
+                    <form id="newsletter-form"
+                        action="https://api.encharge.io/v1/forms/04be312d-91ea-4734-9f8f-90ff6985a66f/submission/plain"
+                        method="POST" class="footer-form">
+
+                        <div style="margin-bottom: 10px;">
+                            <input type="email" name="email" placeholder="Tu email" required class="form-control">
+                        </div>
+
+                        <div class="g-recaptcha" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
+                            style="margin-bottom: 15px;"></div>
+
                         <button type="submit" class="btn-small">Únete</button>
+
+                        <div class="footer-legal-check" style="margin-top: 15px;">
+                            <input type="checkbox" id="privacy" name="nativeFormMarketingConsent" required>
+                            <label for="privacy">
+                                Acepto la <a href="https://yerailorenzo.es/politica-privacidad/" target="_blank"
+                                    rel="noopener" style="color: inherit; text-decoration: underline;">política de
+                                    privacidad</a>
+                            </label>
+                        </div>
+
                     </form>
-                    <div class="footer-legal-check">
-                        <input type="checkbox" id="privacy" required>
-                        <label for="privacy">Acepto la política de privacidad</label>
-                    </div>
                 </div>
+
+                <script>
+                    document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+                        var response = grecaptcha.getResponse();
+                        if (response.length == 0) {
+                            // reCAPTCHA not verified
+                            alert("Por favor, verifica que no eres un robot.");
+                            event.preventDefault();
+                            return false;
+                        }
+                        // If verified, the form submits to Encharge
+                    });
+                </script>
 
                 <!-- Col 2: Navegación -->
                 <div>
@@ -557,6 +607,7 @@
 
     <!-- SCRIPTS -->
     <script src="https://yerai.pages.dev/main.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <div id="cookie-banner" class="cookie-banner">
         <p>
             Uso cookies para mejorar tu experiencia. Haz clic en aceptar para aceptar las cookies. El consentimiento me
