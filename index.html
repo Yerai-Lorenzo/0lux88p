@@ -487,21 +487,27 @@
 
                     <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
                     <script>
-                        function onSubmit(token) {
+                        // Esta función se ejecuta SÓLO después de que Google valida (y si el checkbox está marcado)
+                        function onReCaptchaSuccess(token) {
                             document.getElementById("newsletter-form").submit();
                         }
+
+                        // Esta función intercepta el envío para lanzar el captcha
+                        function handleFormSubmit(event) {
+                            event.preventDefault(); // Paramos el envío un momento
+                            grecaptcha.execute();   // Le decimos a Google: "Ahora valida tú"
+                        }
+                    </script>
                     </script>
                     <form id="newsletter-form"
                         action="https://api.encharge.io/v1/forms/04be312d-91ea-4734-9f8f-90ff6985a66f/submission/plain"
-                        method="POST" class="footer-form">
+                        method="POST" class="footer-form" onsubmit="handleFormSubmit(event)">
 
                         <div style="display: flex; gap: 10px; align-items: stretch;">
-
                             <input type="email" name="email" placeholder="Tu email" required
-                                style="flex-grow: 1; min-width: 0;" class="form-control"> <button
-                                class="g-recaptcha btn-small" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
-                                data-callback="onSubmit" data-action="submit"
-                                style="white-space: nowrap; cursor: pointer;">
+                                style="flex-grow: 1; min-width: 0;" class="form-control">
+
+                            <button type="submit" class="btn-small" style="white-space: nowrap; cursor: pointer;">
                                 Únete
                             </button>
                         </div>
@@ -516,21 +522,12 @@
                             </label>
                         </div>
 
+                        <div class="g-recaptcha" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
+                            data-callback="onReCaptchaSuccess" data-size="invisible">
+                        </div>
+
                     </form>
                 </div>
-
-                <script>
-                    document.getElementById("newsletter-form").addEventListener("submit", function (event) {
-                        var response = grecaptcha.getResponse();
-                        if (response.length == 0) {
-                            // reCAPTCHA not verified
-                            alert("Por favor, verifica que no eres un robot.");
-                            event.preventDefault();
-                            return false;
-                        }
-                        // If verified, the form submits to Encharge
-                    });
-                </script>
 
                 <!-- Col 2: Navegación -->
                 <div>
