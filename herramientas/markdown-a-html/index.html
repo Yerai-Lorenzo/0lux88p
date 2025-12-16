@@ -552,19 +552,37 @@
                 URL.revokeObjectURL(url);
             });
 
-            markdownInput.value = `#### **Ventajas**
+            markdownInput.value = `# Guía de Conversión: De Markdown a HTML Semántico
 
-* **Eficiencia energética**: La aerotermia es una de las tecnologías más eficientes para climatización y agua caliente sanitaria, lo que puede reducir significativamente tus facturas de energía.  
-* **Sostenibilidad**: Es una opción respetuosa con el medio ambiente, ya que utiliza energía renovable del aire exterior.  
-* **Versatilidad**: Funciona tanto para calefacción como para refrigeración y agua caliente sanitaria (ACS), adaptándose a las necesidades de cada estación.
+La transformación de **Markdown** (*lenguaje de marcado ligero*) a HTML es un proceso fundamental en la web moderna. ~~Olvídate de escribir etiquetas complejas a mano.~~ El objetivo es obtener un documento limpio y accesible.
 
-## Caso complejo (debe mantener los párrafos)
+## 1. Principios Básicos
+> "El código semántico es accesible por defecto y amado por los motores de búsqueda."
 
-* Este es el primer párrafo de un item.
+Para lograr esto, debemos entender cómo los símbolos se traducen en etiquetas:
 
-  Este es el segundo párrafo. Este sí necesita las etiquetas &lt;p&gt;.
+1.  **Encabezados:** \`#\` se convierte en \`<h1>\`.
+2.  **Párrafos:** Las líneas separadas se envuelven en \`<p>\`.
+3.  **Listas:**
+    * Los guiones \`-\` crean listas desordenadas (\`<ul>\`).
+        * La indentación crea listas anidadas.
+    * Los números \`1.\` crean listas ordenadas (\`<ol>\`).
 
-* Un item simple.
+---
+
+## 2. Elementos de Código y Medios
+
+El manejo de bloques técnicos es crucial para la documentación.
+
+### Código en línea y bloques
+Podemos resaltar una variable como \`const parser = new Markdown();\` o mostrar un bloque completo:
+
+\`\`\`javascript
+// Función para convertir markdown a HTML
+function renderMarkdown(text) {
+  return text.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+}
+\`\`\`
 `;
 
             renderMarkdown();
