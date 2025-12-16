@@ -612,7 +612,25 @@
 
     <!-- SCRIPTS -->
     <script src="https://yerai.pages.dev/main.js" defer></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        let recaptchaLoaded = false;
+        function loadRecaptcha() {
+            if (recaptchaLoaded) return;
+            recaptchaLoaded = true;
+
+            const script = document.createElement('script');
+            script.src = "https://www.google.com/recaptcha/api.js";
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+
+            const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
+            events.forEach(event => window.removeEventListener(event, loadRecaptcha));
+        }
+
+        const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
+        events.forEach(event => window.addEventListener(event, loadRecaptcha, { passive: true, once: true }));
+    </script>
     <div id="cookie-banner" class="cookie-banner">
         <p>
             Uso cookies para mejorar tu experiencia. Haz clic en aceptar para aceptar las cookies. El consentimiento me
