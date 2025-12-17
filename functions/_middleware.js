@@ -3,7 +3,7 @@ export async function onRequest(context) {
     const url = new URL(request.url);
     const pathname = url.pathname;
 
-    // 1. LISTA DE RUTAS ELIMINADAS (410 GONE)
+    // 1. LISTA DE RUTAS ELIMINADAS (410 GONE) - Exactas
     const gonePaths = new Set([
         '/modern.svg',
         '/cropped-favicon-32x32.png',
@@ -52,13 +52,21 @@ export async function onRequest(context) {
         '/siteground-optimizer-combined-js-128f0b4f3e0e51a706b288cb0d3ccece.js'
     ]);
 
-    // Si la ruta está en la lista negra, devolvemos 410 y paramos aquí.
-    if (gonePaths.has(pathname)) {
-        return new Response("410 Gone", { status: 410, statusText: "Gone" });
+    // 2. VERIFICACIÓN DE PATRONES (wp-content o wp-includes)
+    const isWordPressPath = pathname.includes('wp-content') || pathname.includes('wp-includes');
+
+    // Si la ruta está en la lista O contiene los patrones de WordPress, devolvemos 410.
+    if (gonePaths.has(pathname) || isWordPressPath) {
+        return new Response("410 Gone", {
+            status: 410,
+            statusText: "Gone",
+            headers: {
+                "Content-Type": "text/plain;charset=UTF-8",
+                "Cache-Control": "public, max-age=604800"
+            }
+        });
     }
 
-    // 2. COMPORTAMIENTO POR DEFECTO
-    // Si no es un 410, dejamos que Cloudflare Pages procese la petición.
-    // Si la página no existe, Cloudflare mostrará automáticamente tu 404.html o el error predeterminado.
+    // 3. COMPORTAMIENTO POR DEFECTO
     return next();
 }
