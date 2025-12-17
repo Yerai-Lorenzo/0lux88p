@@ -1799,5 +1799,5 @@ footer .social-links svg {
 }
 
 .grecaptcha-badge {
-    visibility: hidden;
+    display: none;
 }

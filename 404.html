@@ -175,14 +175,47 @@
                     <p>Yerai Lorenzo es un consultor SEO especializado en SEO técnico y semántico.</p>
 
                     <p class="card-title text-accent" style="margin-top: 30px;">Apúntate a la newsletter</p>
-                    <form action="#" class="footer-form">
-                        <input type="email" placeholder="Tu email" required>
-                        <button type="submit" class="btn-small">Únete</button>
+                    <script>
+                        // Esta función se ejecuta SÓLO después de que Google valida (y si el checkbox está marcado)
+                        function onReCaptchaSuccess(token) {
+                            document.getElementById("newsletter-form").submit();
+                        }
+
+                        // Esta función intercepta el envío para lanzar el captcha
+                        function handleFormSubmit(event) {
+                            event.preventDefault(); // Paramos el envío un momento
+                            grecaptcha.execute();   // Le decimos a Google: "Ahora valida tú"
+                        }
+                    </script>
+                    </script>
+                    <form id="newsletter-form"
+                        action="https://api.encharge.io/v1/forms/04be312d-91ea-4734-9f8f-90ff6985a66f/submission/plain"
+                        method="POST" class="footer-form" onsubmit="handleFormSubmit(event)">
+
+                        <div style="display: flex; gap: 10px; align-items: stretch;">
+                            <input type="email" name="email" placeholder="Tu email" required
+                                style="flex-grow: 1; min-width: 0;" class="form-control">
+
+                            <button type="submit" class="btn-small" style="white-space: nowrap; cursor: pointer;">
+                                Únete
+                            </button>
+                        </div>
+
+                        <div class="footer-legal-check"
+                            style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="privacy" name="nativeFormMarketingConsent" required>
+                            <label for="privacy" style="margin: 0; font-size: 0.9em;">
+                                Acepto la <a href="https://yerailorenzo.es/politica-privacidad/" target="_blank"
+                                    rel="noopener" style="color: inherit; text-decoration: underline;">política de
+                                    privacidad</a>
+                            </label>
+                        </div>
+
+                        <div class="g-recaptcha" data-sitekey="6LfezC0sAAAAAEfsZvca-sd5YPCX8b7jbhQ9UeZp"
+                            data-callback="onReCaptchaSuccess" data-size="invisible">
+                        </div>
+
                     </form>
-                    <div class="footer-legal-check">
-                        <input type="checkbox" id="privacy" required>
-                        <label for="privacy">Acepto la política de privacidad</label>
-                    </div>
                 </div>
 
                 <!-- Col 2: Navegación -->
@@ -284,6 +317,25 @@
 
     <!-- SCRIPTS -->
     <script src="https://yerai.pages.dev/assets/js/main.js" defer></script>
+    <script>
+        let recaptchaLoaded = false;
+        function loadRecaptcha() {
+            if (recaptchaLoaded) return;
+            recaptchaLoaded = true;
+
+            const script = document.createElement('script');
+            script.src = "https://www.google.com/recaptcha/api.js";
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+
+            const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
+            events.forEach(event => window.removeEventListener(event, loadRecaptcha));
+        }
+
+        const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
+        events.forEach(event => window.addEventListener(event, loadRecaptcha, { passive: true, once: true }));
+    </script>
 
     <!-- Algolia InstantSearch JS -->
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.1/dist/algoliasearch-lite.umd.js"></script>
