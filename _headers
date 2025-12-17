@@ -7,27 +7,7 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 # === REGLAS DE CACHÉ ===
-/img/*
-  Cache-Control: public, max-age=31536000, immutable
-*.js
-  Cache-Control: public, max-age=31536000, immutable
-*.css
-  Cache-Control: public, max-age=31536000, immutable
-*.jpg
-  Cache-Control: public, max-age=31536000, immutable
-*.jpeg
-  Cache-Control: public, max-age=31536000, immutable
-*.png
-  Cache-Control: public, max-age=31536000, immutable
-*.gif
-  Cache-Control: public, max-age=31536000, immutable
-*.webp
-  Cache-Control: public, max-age=31536000, immutable
-*.svg
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
 *.ico
-  Cache-Control: public, max-age=31536000, immutable
-*.avif
-  Cache-Control: public, max-age=31536000, immutable
-*.mp3
   Cache-Control: public, max-age=31536000, immutable
