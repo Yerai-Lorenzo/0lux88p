@@ -11,3 +11,6 @@
 /url / / 301
 /ecommerce / / 301
 /servicios / / 301
+
+# Redirect to custom domain
+https://yerai.pages.dev/* https://yerailorenzo.com/:splat 301!
