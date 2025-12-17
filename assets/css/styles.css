@@ -1797,3 +1797,7 @@ footer .social-links svg {
     height: 18px;
     fill: currentColor;
 }
+
+.grecaptcha-badge {
+    visibility: hidden;
+}
