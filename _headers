@@ -1,13 +1,15 @@
-# === SEGURIDAD GLOBAL (Aplica a todo el sitio) ===
+# === REGLAS ESPECÍFICAS (Assets) ===
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# === REGLAS ESPECÍFICAS (Iconos) ===
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# === SEGURIDAD GLOBAL (Aplica a lo que no sea lo anterior) ===
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-
-# === REGLAS DE CACHÉ ===
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-*.ico
-  Cache-Control: public, max-age=31536000, immutable
