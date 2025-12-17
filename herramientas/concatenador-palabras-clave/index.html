@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://yerailorenzo.com/herramientas/concatenador-palabras-clave/" />
     <meta name="description"
         content="Herramienta gratuita para concatenar palabras clave y generar permutaciones. Ideal para SEO y PPC.">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
     <link rel="icon" href="https://yerailorenzo.com/favicon.ico" sizes="48x48" />
     <!-- Website Global Styles -->
     <link rel="stylesheet" href="https://yerailorenzo.com/assets/css/styles.css">
@@ -321,7 +321,6 @@
                             event.preventDefault(); // Paramos el envío un momento
                             grecaptcha.execute();   // Le decimos a Google: "Ahora valida tú"
                         }
-                    </script>
                     </script>
                     <form id="newsletter-form"
                         action="https://api.encharge.io/v1/forms/04be312d-91ea-4734-9f8f-90ff6985a66f/submission/plain"
@@ -879,31 +878,6 @@
             // Initial setup
             updatePermutationOptions();
         });
-    </script>
-    <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Volver arriba"><svg viewBox="0 0 20 20">
-            <path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"></path>
-        </svg></button>
-
-    <script src="https://yerailorenzo.com/assets/js/main.js" defer></script>
-    <script>
-        let recaptchaLoaded = false;
-        function loadRecaptcha() {
-            if (recaptchaLoaded) return;
-            recaptchaLoaded = true;
-
-            const script = document.createElement('script');
-            script.src = "https://www.google.com/recaptcha/api.js";
-            script.async = true;
-            script.defer = true;
-            document.head.appendChild(script);
-
-            const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
-            events.forEach(event => window.removeEventListener(event, loadRecaptcha));
-        }
-
-        const events = ['keydown', 'mousemove', 'touchstart', 'scroll', 'click'];
-        events.forEach(event => window.addEventListener(event, loadRecaptcha, { passive: true, once: true }));
     </script>
     <div id="cookie-banner" class="cookie-banner">
         <p>
